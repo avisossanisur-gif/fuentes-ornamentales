@@ -645,27 +645,25 @@
     transition: background 0.15s, color 0.15s;
   }
   .btn-export:active { background: var(--azul); color: white; }
+
+/* Bloqueo total para ayuntamiento */
+body[data-rol="ayuntamiento"] #modal-overlay { pointer-events: none !important; }
+body[data-rol="ayuntamiento"] textarea,
+body[data-rol="ayuntamiento"] input[type="text"],
+body[data-rol="ayuntamiento"] input[type="date"],
+body[data-rol="ayuntamiento"] .btn-guardar,
+body[data-rol="ayuntamiento"] button:not(.topbar-back):not(.filtro-btn) {
+  pointer-events: none !important;
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+body[data-rol="ayuntamiento"] .registro-item {
+  cursor: default !important;
+  pointer-events: none !important;
+}
 </style>
 </head>
 <body>
-<script>
-// Forzar título correcto según rol al renderizar
-var _origRender = null;
-document.addEventListener('DOMContentLoaded', function() {
-  var orig = window.renderResponsable;
-  if (orig) {
-    window.renderResponsable = function() {
-      orig();
-      if (window.rol === 'ayuntamiento') {
-        document.getElementById('topbar-titulo').textContent = 'Panel Ayuntamiento';
-        document.getElementById('topbar-badge').textContent = 'AYUNTAMIENTO';
-        document.getElementById('topbar-badge').style.background = '#1a7c3e';
-      }
-    };
-  }
-});
-</script>
-
 <!-- ===== PANTALLA MUNICIPIO ===== -->
 <div id="pantalla-municipio">
   <div class="logo-water">⛲</div>
@@ -1666,8 +1664,9 @@ function nuevoRegistro() {
 // ===== RESPONSABLE =====
 function renderResponsable(rolActual) {
   // Actualizar título y badge según rol
-  var rolEfectivo = rolActual || rol || document.body.getAttribute('data-rol');
-  if (rolEfectivo === 'ayuntamiento') {
+  var rolEfectivo = rolActual || rol || document.body.getAttribute('data-rol') || '';
+  var esAyuntamiento = (rolEfectivo === 'ayuntamiento') || (document.body.getAttribute('data-rol') === 'ayuntamiento');
+  if (esAyuntamiento) {
     document.getElementById('topbar-titulo').textContent = 'Panel Ayuntamiento';
     document.getElementById('topbar-badge').textContent = 'AYUNTAMIENTO';
     document.getElementById('topbar-badge').style.background = '#2d6a4f';
@@ -2727,45 +2726,6 @@ function exportarExcel() {
   });
 
 
-</script>
-<script>
-// Parche final: forzar título correcto tras cada renderResponsable
-var _origRenderResponsable = window.renderResponsable;
-if (_origRenderResponsable) {
-  window.renderResponsable = function(r) {
-    _origRenderResponsable.apply(this, arguments);
-    if (window.rol === 'ayuntamiento') {
-      var t = document.getElementById('topbar-titulo');
-      var b = document.getElementById('topbar-badge');
-      if (t) t.textContent = 'Panel Ayuntamiento';
-      if (b) { b.textContent = 'AYUNTAMIENTO'; b.style.background = '#2d6a4f'; }
-    }
-  };
-}
-// Parche: bloquear verDetalle para ayuntamiento
-var _origVerDetalle = window.verDetalle;
-if (_origVerDetalle) {
-  window.verDetalle = function(id) {
-    if (window.rol === 'ayuntamiento') return;
-    _origVerDetalle.apply(this, arguments);
-  };
-}
-</script>
-<script>
-// Vigilante de título - corrige cada 200ms si es necesario
-setInterval(function() {
-  if (window.rol === 'ayuntamiento') {
-    var t = document.getElementById('topbar-titulo');
-    var b = document.getElementById('topbar-badge');
-    if (t && t.textContent !== 'Panel Ayuntamiento') {
-      t.textContent = 'Panel Ayuntamiento';
-    }
-    if (b && b.textContent !== 'AYUNTAMIENTO') {
-      b.textContent = 'AYUNTAMIENTO';
-      b.style.background = '#2d6a4f';
-    }
-  }
-}, 200);
 </script>
 </body>
 </html>
