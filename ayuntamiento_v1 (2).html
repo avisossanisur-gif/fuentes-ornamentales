@@ -1,0 +1,2730 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Fuentes Ornamentales — Almuñécar</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --azul: #0a3d62;
+    --agua: #1e90ff;
+    --cielo: #e8f4fd;
+    --acento: #00b4d8;
+    --verde: #06d6a0;
+    --rojo: #ef233c;
+    --naranja: #fb8500;
+    --gris: #f0f4f8;
+    --texto: #1a1a2e;
+    --blanco: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--azul);
+    color: var(--texto);
+    min-height: 100vh;
+  }
+
+  /* ===== PANTALLA INICIO ===== */
+  #pantalla-inicio {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a3d62 0%, #1a6fa6 50%, #00b4d8 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .logo-water {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  #pantalla-inicio h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+  #pantalla-inicio p {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .btn-rol {
+    width: 100%;
+    max-width: 360px;
+    padding: 1.2rem 2rem;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    transition: transform 0.15s, box-shadow 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .btn-rol:active { transform: scale(0.97); }
+  .btn-trabajador {
+    background: white;
+    color: var(--azul);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  }
+  .btn-responsable {
+    background: var(--acento);
+    color: white;
+    box-shadow: 0 8px 30px rgba(0,180,216,0.4);
+  }
+  .btn-rol .icono { font-size: 1.6rem; }
+  .btn-rol .texto { text-align: left; }
+  .btn-rol .subtexto { font-size: 0.78rem; font-weight: 400; opacity: 0.7; font-family: 'DM Sans', sans-serif; }
+
+  /* ===== LAYOUT PRINCIPAL ===== */
+  #app {
+    display: none;
+    min-height: 100vh;
+    background: var(--gris);
+    flex-direction: column;
+  }
+
+  .topbar {
+    background: var(--azul);
+    color: white;
+    padding: 0.9rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .topbar-back {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .topbar h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    flex: 1;
+    line-height: 1.2;
+  }
+  .topbar-badge-ayuntamiento { background: #1a7c3e !important; }
+.topbar-badge {
+    background: var(--acento);
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .contenido { padding: 1.2rem; flex: 1; }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: white;
+    border-radius: 18px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+  }
+  .card-titulo {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--azul);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* ===== FORMULARIO TRABAJADOR ===== */
+  .campo label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .campo input, .campo select, .campo textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 2px solid #e0e7ef;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--texto);
+    background: #fafbfd;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none;
+  }
+  .campo input:focus, .campo select:focus, .campo textarea:focus {
+    outline: none;
+    border-color: var(--acento);
+    box-shadow: 0 0 0 3px rgba(0,180,216,0.15);
+    background: white;
+  }
+  .campo { margin-bottom: 1rem; }
+  .campo textarea { min-height: 80px; resize: none; }
+
+  /* Selector fuente con chips */
+  .fuente-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    gap: 0.4rem;
+  }
+  .fuente-chip {
+    padding: 0.5rem 0.3rem;
+    border: 2px solid #e0e7ef;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    background: #fafbfd;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .fuente-chip.activo {
+    border-color: var(--acento);
+    background: var(--cielo);
+  }
+  .fuente-chip .nombre {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--azul);
+    display: block;
+    line-height: 1.2;
+    margin-bottom: 0.2rem;
+    word-break: break-word;
+  }
+  .fuente-chip.activo .nombre { color: var(--acento); }
+  .fuente-chip .codigo {
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: #aaa;
+    display: block;
+  }
+
+  /* Tabla de checks */
+  .check-tabla { width: 100%; border-collapse: collapse; }
+  .check-tabla th {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #888;
+    padding: 0.5rem 0.4rem;
+    text-align: center;
+    background: #f8f9fb;
+  }
+  .check-tabla th:first-child { text-align: left; }
+  .check-tabla td {
+    padding: 0.6rem 0.4rem;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.85rem;
+    vertical-align: middle;
+  }
+  .check-tabla tr:last-child td { border-bottom: none; }
+  .check-tabla .actividad-td { font-weight: 500; color: var(--texto); font-size: 0.82rem; line-height: 1.3; }
+
+  .estado-btns { display: flex; gap: 0.3rem; justify-content: center; }
+  .estado-btn {
+    width: 64px; height: 52px;
+    border-radius: 8px;
+    border: 2px solid #e0e7ef;
+    cursor: pointer;
+    font-size: 0.9rem;
+    background: white;
+    transition: all 0.15s;
+    line-height: 1.1;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .estado-btn.ok.sel { background: var(--verde); border-color: var(--verde); }
+  .estado-btn.mal.sel { background: var(--rojo); border-color: var(--rojo); }
+  .estado-btn.nd.sel { background: var(--naranja); border-color: var(--naranja); }
+
+  /* Selector tipo registro */
+  .tipo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+  .tipo-card {
+    padding: 0.85rem 0.7rem;
+    border: 2px solid #e0e7ef;
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.15s;
+    background: #fafbfd;
+    position: relative;
+  }
+  .tipo-card.activo {
+    border-color: var(--acento);
+    background: var(--cielo);
+  }
+  .tipo-card .tipo-icono { font-size: 1.6rem; margin-bottom: 0.25rem; }
+  .tipo-card .tipo-freq {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--azul);
+    line-height: 1.15;
+    margin-bottom: 0.25rem;
+  }
+  .tipo-card.activo .tipo-freq { color: var(--acento); }
+  .tipo-card .tipo-num {
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: #aaa;
+    letter-spacing: 0.02em;
+  }
+
+  /* Botón enviar */
+  .btn-enviar {
+    width: 100%;
+    padding: 1.1rem;
+    background: linear-gradient(135deg, var(--azul), var(--acento));
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,180,216,0.35);
+    transition: transform 0.15s, box-shadow 0.15s;
+    margin-top: 0.5rem;
+  }
+  .btn-enviar:active { transform: scale(0.98); }
+  .btn-enviar:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* ===== PANEL RESPONSABLE ===== */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7rem;
+    margin-bottom: 1rem;
+  }
+  .stat-card {
+    background: white;
+    border-radius: 14px;
+    padding: 1rem 0.8rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .stat-numero {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label { font-size: 0.7rem; color: #888; font-weight: 500; }
+  .stat-total .stat-numero { color: var(--azul); }
+  .stat-ok .stat-numero { color: var(--verde); }
+  .stat-mal .stat-numero { color: var(--rojo); }
+
+  /* Registros lista */
+  .registro-item {
+    background: white;
+    border-radius: 14px;
+    padding: 1rem;
+    margin-bottom: 0.7rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: transform 0.1s;
+    border-left: 4px solid var(--acento);
+  }
+  .registro-item.tiene-incidencia { border-left-color: var(--rojo); }
+  .registro-item:active { transform: scale(0.99); }
+  .registro-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+  .registro-tipo {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--azul);
+  }
+  .registro-fecha { font-size: 0.75rem; color: #aaa; }
+  .registro-fuentes { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.5rem; }
+  .fuente-tag {
+    background: var(--cielo);
+    color: var(--azul);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-family: 'Syne', sans-serif;
+  }
+  .registro-trabajador { font-size: 0.78rem; color: #777; }
+  .registro-incidencias {
+    margin-top: 0.5rem;
+    background: #fff5f5;
+    border-radius: 8px;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.78rem;
+    color: var(--rojo);
+    font-weight: 500;
+  }
+
+  .badge-ok { background: #e8faf3; color: var(--verde); font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 20px; }
+  .badge-mal { background: #ffeef0; color: var(--rojo); font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 20px; }
+
+  /* Filtros */
+  .filtros { display: flex; gap: 0.5rem; margin-bottom: 1rem; overflow-x: auto; padding-bottom: 0.3rem; }
+  .filtros::-webkit-scrollbar { display: none; }
+  .filtro-btn {
+    flex-shrink: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 2px solid #e0e7ef;
+    background: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s;
+    color: #555;
+  }
+  .filtro-btn.activo { background: var(--azul); border-color: var(--azul); color: white; }
+
+  /* Modal detalle */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 200;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .modal-overlay.visible { display: flex; }
+  .modal {
+    background: white;
+    border-radius: 24px 24px 0 0;
+    padding: 1.5rem;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    animation: slideUp 0.25s ease-out;
+  }
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  .modal-titulo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--azul);
+    margin-bottom: 1rem;
+  }
+  .modal-cerrar {
+    float: right;
+    background: var(--gris);
+    border: none;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #555;
+  }
+  .detalle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.85rem;
+  }
+  .detalle-row:last-child { border-bottom: none; }
+  .detalle-act { color: #555; flex: 1; }
+  .detalle-est { font-weight: 600; }
+  .est-ok { color: var(--verde); }
+  .est-mal { color: var(--rojo); }
+  .est-nd { color: var(--naranja); }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--azul);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    z-index: 300;
+    transition: transform 0.3s ease;
+    text-align: center;
+    max-width: 320px;
+    width: 90%;
+  }
+  .toast.visible { transform: translateX(-50%) translateY(0); }
+
+  /* Pantalla éxito */
+  .exito-pantalla {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    text-align: center;
+    min-height: 70vh;
+  }
+  .exito-pantalla.visible { display: flex; }
+  .exito-icono { font-size: 5rem; margin-bottom: 1rem; }
+  .exito-pantalla h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--azul);
+    margin-bottom: 0.5rem;
+  }
+  .exito-pantalla p { color: #777; font-size: 0.9rem; margin-bottom: 2rem; }
+  .btn-nuevo {
+    padding: 1rem 2rem;
+    background: var(--azul);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+
+  /* Info box */
+  .info-box {
+    background: var(--cielo);
+    border-left: 4px solid var(--acento);
+    border-radius: 0 10px 10px 0;
+    padding: 0.8rem 1rem;
+    font-size: 0.82rem;
+    color: var(--azul);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Semáforo cloro */
+  .cloro-container { position: relative; }
+  .cloro-scale {
+    display: flex;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+  }
+  .cloro-bajo { background: var(--rojo); flex: 1.5; }
+  .cloro-ok { background: var(--verde); flex: 1.5; }
+  .cloro-alto { background: var(--naranja); flex: 1; }
+  .cloro-labels { display: flex; justify-content: space-between; font-size: 0.68rem; color: #888; }
+
+  .vacío { text-align: center; padding: 3rem 1rem; color: #aaa; }
+  .vacío .icono-vacío { font-size: 3rem; margin-bottom: 0.5rem; }
+
+  .seccion-titulo {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin: 1.2rem 0 0.6rem;
+  }
+
+  /* ===== SELECTOR MUNICIPIO ===== */
+  #pantalla-municipio {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a3d62 0%, #1a6fa6 50%, #00b4d8 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+  }
+  #pantalla-municipio h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.4rem;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+  #pantalla-municipio p {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.9rem;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .btn-municipio {
+    width: 100%;
+    max-width: 360px;
+    padding: 1.3rem 1.5rem;
+    border-radius: 18px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    transition: transform 0.15s, box-shadow 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  }
+  .btn-municipio:active { transform: scale(0.97); }
+  .btn-municipio .muni-icono { font-size: 2rem; flex-shrink: 0; }
+  .btn-municipio .muni-texto { flex: 1; }
+  .btn-municipio .muni-nombre { display: block; }
+  .btn-municipio .muni-sub { font-size: 0.75rem; font-weight: 400; opacity: 0.75; font-family: 'DM Sans', sans-serif; margin-top: 0.15rem; display: block; }
+  .btn-almunecar { background: white; color: var(--azul); }
+  .btn-salobrena { background: var(--acento); color: white; }
+
+  /* Export btn */
+  .btn-export {
+    width: 100%;
+    padding: 0.9rem;
+    background: white;
+    color: var(--azul);
+    border: 2px solid var(--azul);
+    border-radius: 14px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-bottom: 0.7rem;
+    transition: background 0.15s, color 0.15s;
+  }
+  .btn-export:active { background: var(--azul); color: white; }
+
+/* Bloqueo total para ayuntamiento */
+body[data-rol="ayuntamiento"] #modal-overlay { pointer-events: none !important; }
+body[data-rol="ayuntamiento"] textarea,
+body[data-rol="ayuntamiento"] input[type="text"],
+body[data-rol="ayuntamiento"] input[type="date"],
+body[data-rol="ayuntamiento"] .btn-guardar,
+body[data-rol="ayuntamiento"] button:not(.topbar-back):not(.filtro-btn) {
+  pointer-events: none !important;
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+body[data-rol="ayuntamiento"] .registro-item {
+  cursor: default !important;
+  pointer-events: none !important;
+}
+</style>
+</head>
+<body>
+<!-- ===== PANTALLA MUNICIPIO ===== -->
+<div id="pantalla-municipio">
+  <div class="logo-water">⛲</div>
+  <h1>Fuentes Ornamentales</h1>
+  <p>Selecciona el Ayuntamiento</p>
+
+  <button class="btn-municipio btn-almunecar" onclick="selMunicipio('almunecar')">
+    <span class="muni-icono">🏛️</span>
+    <span class="muni-texto">
+      <span class="muni-nombre">Ayto. Almuñécar</span>
+      <span class="muni-sub">11 fuentes ornamentales</span>
+    </span>
+    <span>›</span>
+  </button>
+
+  <button class="btn-municipio btn-salobrena" onclick="selMunicipio('salobrena')">
+    <span class="muni-icono">🏛️</span>
+    <span class="muni-texto">
+      <span class="muni-nombre">Ayto. Salobreña</span>
+      <span class="muni-sub">4 fuentes ornamentales</span>
+    </span>
+    <span>›</span>
+  </button>
+</div>
+
+<!-- ===== PANTALLA INICIO ===== -->
+<div id="pantalla-inicio" style="display:none;">
+  <div class="logo-water">⛲</div>
+  <h1 id="inicio-titulo">Fuentes Ornamentales<br>Almuñécar</h1>
+  <p>Sistema de Registros</p>
+
+  <button class="btn-rol btn-trabajador" onclick="pedirClave('trabajador')">
+    <span class="icono">👷</span>
+    <span class="texto">
+      Soy Trabajador
+      <span class="subtexto">Rellenar registro desde el campo</span>
+    </span>
+  </button>
+
+  <button class="btn-rol btn-responsable" onclick="pedirClave('responsable')">
+    <span class="icono">📊</span>
+    <span class="texto">
+      Soy Responsable
+      <span class="subtexto">Ver todos los registros enviados</span>
+    </span>
+  </button>
+
+  <button class="btn-rol" onclick="pedirClave('ayuntamiento')" style="background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.4);">
+    <span class="icono">🏛️</span>
+    <span class="texto" style="color:white;">
+      Soy Ayuntamiento
+      <span class="subtexto" style="color:rgba(255,255,255,0.8);">Ver registros sin modificar</span>
+    </span>
+  </button>
+
+  <!-- Modal contraseña -->
+  <div id="modal-clave" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9999;align-items:center;justify-content:center;">
+    <div style="background:white;border-radius:20px;padding:2rem;width:90%;max-width:340px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+      <div style="font-size:2rem;margin-bottom:0.5rem;" id="modal-clave-icono">🔒</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;color:#1a2e4a;margin-bottom:0.3rem;" id="modal-clave-titulo">Acceso</div>
+      <div style="font-size:0.82rem;color:#888;margin-bottom:1rem;">Introduce la contraseña</div>
+      <input type="password" id="input-clave" placeholder="Contraseña..."
+        style="width:100%;padding:0.8rem;border:2px solid #e0e7ef;border-radius:12px;font-size:1rem;font-family:'DM Sans',sans-serif;box-sizing:border-box;margin-bottom:0.8rem;"
+        onkeydown="if(event.key==='Enter')verificarClave()" />
+      <div id="clave-error" style="color:#ef233c;font-size:0.8rem;margin-bottom:0.6rem;min-height:1.2rem;"></div>
+      <div style="display:flex;gap:0.6rem;">
+        <button onclick="cerrarModalClave()" style="flex:1;padding:0.8rem;border:2px solid #e0e7ef;border-radius:12px;background:white;font-family:'Syne',sans-serif;font-weight:700;cursor:pointer;color:#888;">Cancelar</button>
+        <button onclick="verificarClave()" style="flex:1;padding:0.8rem;border:none;border-radius:12px;background:#1a2e4a;color:white;font-family:'Syne',sans-serif;font-weight:700;cursor:pointer;">Entrar</button>
+      </div>
+    </div>
+  </div>
+
+  <button onclick="volverMunicipio()" style="margin-top:1rem;background:rgba(255,255,255,0.15);border:none;color:white;font-size:0.85rem;padding:0.6rem 1.2rem;border-radius:20px;cursor:pointer;font-family:'DM Sans',sans-serif;">
+    ← Cambiar municipio
+  </button>
+</div>
+
+<!-- ===== APP PRINCIPAL ===== -->
+<div id="app" style="display:none; flex-direction:column; min-height:100vh; background:var(--gris);">
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="topbar-back" onclick="volver()">←</button>
+    <h2 id="topbar-titulo">Registros</h2>
+    <span class="topbar-badge" id="topbar-badge"></span>
+  </div>
+
+  <!-- Contenido trabajador -->
+  <div id="vista-trabajador" style="display:none;">
+    <div class="contenido">
+
+      <!-- LIBROS, PARTES Y CERTIFICADOS -->
+      <div id="paso-tipo">
+        <div class="card">
+          <div class="card-titulo">📁 Libros, Partes y Certificados</div>
+          <div class="tipo-grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
+
+            <!-- Libro de Registro y Mantenimiento -->
+            <div class="tipo-card" style="cursor:default; padding: 1.2rem;">
+              <div style="font-size:2rem; margin-bottom:0.4rem;">📚</div>
+              <div style="font-weight:700; color:var(--azul); font-size:0.95rem; margin-bottom:0.8rem;">Libro de Registro y Mantenimiento</div>
+              <label style="display:block; background:var(--azul); color:white; padding:0.5rem 1rem; border-radius:8px; cursor:pointer; font-size:0.82rem; font-weight:600; text-align:center; margin-bottom:0.5rem;">
+                📎 Subir documento
+                <input type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.png" style="display:none;" onchange="mostrarArchivoSubido(this, 'libro-nombre')">
+              </label>
+              <div id="libro-nombre" style="font-size:0.75rem; color:#666; text-align:center; min-height:1.2rem;"></div>
+            </div>
+
+            <!-- Partes y Certificados -->
+            <div class="tipo-card" style="cursor:default; padding: 1.2rem;">
+              <div style="font-size:2rem; margin-bottom:0.4rem;">📄</div>
+              <div style="font-weight:700; color:var(--azul); font-size:0.95rem; margin-bottom:0.8rem;">Partes y Certificados</div>
+              <label style="display:block; background:var(--azul); color:white; padding:0.5rem 1rem; border-radius:8px; cursor:pointer; font-size:0.82rem; font-weight:600; text-align:center; margin-bottom:0.5rem;">
+                📎 Subir documento
+                <input type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.png" style="display:none;" onchange="mostrarArchivoSubido(this, 'partes-nombre')">
+              </label>
+              <div id="partes-nombre" style="font-size:0.75rem; color:#666; text-align:center; min-height:1.2rem;"></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- TIPO DE REGISTRO -->
+        <div class="card">
+          <div class="card-titulo">📋 Tipo de Registro</div>
+          <div class="tipo-grid" id="tipo-grid"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-titulo">📅 Datos Generales</div>
+          <div class="campo">
+            <label>Tu Nombre</label>
+            <div style="position:relative;">
+              <input type="text" id="nombre-trabajador" placeholder="Selecciona o escribe tu nombre"
+                autocomplete="off"
+                oninput="filtrarTrabajadores(this.value)"
+                onfocus="mostrarTrabajadores()"
+                onblur="setTimeout(()=>ocultarTrabajadores(),200)"
+              />
+              <div id="dropdown-trabajadores" style="
+                display:none;
+                position:absolute;
+                top:100%;
+                left:0;right:0;
+                background:white;
+                border:2px solid var(--acento);
+                border-top:none;
+                border-radius:0 0 12px 12px;
+                z-index:50;
+                box-shadow:0 8px 20px rgba(0,0,0,0.1);
+                overflow:hidden;
+              "></div>
+            </div>
+          </div>
+          <div class="campo">
+            <label>Fecha</label>
+            <input type="date" id="fecha-registro" />
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-titulo">⛲ Fuente(s) a Registrar</div>
+          <div class="fuente-grid" id="fuente-grid"></div>
+        </div>
+
+        <button class="btn-enviar" onclick="irPaso2()">Continuar →</button>
+      </div>
+
+      <!-- PASO 2: Formulario -->
+      <div id="paso-formulario" style="display:none;">
+        <div id="form-contenido"></div>
+        <div class="card">
+          <div class="card-titulo">📝 Observaciones</div>
+          <div class="campo">
+            <textarea id="observaciones" placeholder="Añade cualquier observación adicional..."></textarea>
+          </div>
+        </div>
+
+        <!-- FIRMAS -->
+        <div class="card">
+          <div class="card-titulo">✍️ Firmas</div>
+
+          <div class="campo">
+            <label>Firma del Técnico</label>
+            <div style="position:relative;">
+              <canvas id="firma-tecnico" width="340" height="120"
+                style="width:100%;height:120px;border:2px solid #e0e7ef;border-radius:12px;background:#fafbfd;touch-action:none;cursor:crosshair;display:block;"></canvas>
+              <button onclick="limpiarFirma('firma-tecnico')"
+                style="position:absolute;top:6px;right:6px;background:white;border:1.5px solid #e0e7ef;border-radius:8px;padding:0.2rem 0.6rem;font-size:0.72rem;color:#888;cursor:pointer;">
+                Borrar
+              </button>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label>Firma del Responsable</label>
+            <div style="border:2px solid #e0e7ef;border-radius:12px;background:#fafbfd;padding:0.5rem;text-align:center;">
+              <div style="color:#888;font-size:0.82rem;text-align:center;padding:0.5rem;">✍️ Firma responsable (papel)</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-enviar" onclick="enviarRegistro()">✅ Enviar Registro</button>
+      </div>
+
+      <!-- PASO 3: Éxito -->
+      <div class="exito-pantalla" id="paso-exito">
+        <div class="exito-icono">✅</div>
+        <h3>¡Registro Enviado!</h3>
+        <p>El registro ha sido guardado correctamente y el responsable podrá consultarlo.</p>
+        <button class="btn-nuevo" onclick="nuevoRegistro()">+ Nuevo Registro</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenido responsable -->
+  <div id="vista-responsable" style="display:none;">
+    <div class="contenido">
+
+      <!-- Stats -->
+      <div class="stats-grid" id="stats-grid"></div>
+
+      <!-- Filtros -->
+      <div class="filtros" id="filtros-container"></div>
+
+      <!-- Botones export -->
+      <button class="btn-export" onclick="exportarExcel()">📊 Exportar Listado Excel</button>
+
+      <!-- Lista registros -->
+      <div id="lista-registros"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Modal detalle -->
+<div class="modal-overlay" id="modal-overlay" onclick="cerrarModal(event)">
+  <div class="modal" id="modal-contenido">
+    <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
+    <div id="modal-inner"></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- ===== FIREBASE SDK COMPAT ===== -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyCvOJaX-MMel_JoKdHXjK2RGTHk9zWAFAQ",
+    authDomain: "fuentes-ornamentales.firebaseapp.com",
+    databaseURL: "https://fuentes-ornamentales-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "fuentes-ornamentales",
+    storageBucket: "fuentes-ornamentales.firebasestorage.app",
+    messagingSenderId: "204617461562",
+    appId: "1:204617461562:web:886e8c1cec233850deaa03"
+  };
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.database();
+
+  window._fbGuardar = function(municipio, registro) {
+    return db.ref(municipio + '/registros').push(registro);
+  };
+  window._fbEscuchar = function(municipio, callback) {
+    db.ref(municipio + '/registros').on('value', function(snapshot) {
+      var datos = snapshot.val();
+      var lista = [];
+      if (datos) {
+        Object.keys(datos).forEach(function(fbKey) {
+          var reg = Object.assign({}, datos[fbKey], { _fbKey: fbKey });
+          lista.push(reg);
+        });
+        lista.sort(function(a, b) { return (b.timestamp || '').localeCompare(a.timestamp || ''); });
+      }
+      callback(lista);
+    });
+  };
+  window._fbActualizar = function(municipio, fbKey, cambios) {
+    return db.ref(municipio + '/registros/' + fbKey).update(cambios);
+  };
+  window._fbEliminar = function(municipio, fbKey) {
+    return db.ref(municipio + '/registros/' + fbKey).remove();
+  };
+  window._firebaseReady = true;
+  document.dispatchEvent(new Event('firebase-ready'));
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+// ===== MUNICIPIOS =====
+const MUNICIPIOS = {
+  almunecar: {
+    nombre: 'Almuñécar',
+    storageKey: 'fuentes_registros',
+    fuentes: [
+      { codigo: 'LC',   nombre: 'La Carrera' },
+      { codigo: 'PM',   nombre: 'Plaza Madrid' },
+      { codigo: 'PAL',  nombre: 'Paseo Altillo' },
+      { codigo: 'LM',   nombre: 'Los Marinos' },
+      { codigo: 'PA',   nombre: 'Pl. Abderraman' },
+      { codigo: 'PAN',  nombre: 'Abderraman Nueva' },
+      { codigo: 'LH',   nombre: 'Los Higuitos' },
+      { codigo: 'PL',   nombre: 'Policía Local' },
+      { codigo: 'LHG',  nombre: 'La Herradura Grande' },
+      { codigo: 'CSLH', nombre: 'La Herradura Pequeña' },
+      { codigo: 'PD',   nombre: 'Plaza Damasco' },
+    ],
+    excelNombre: 'FuentesOrnamentales_Almunecar',
+    excelSubtitulo: 'FUENTES ORNAMENTALES — ALMUÑÉCAR',
+  },
+  salobrena: {
+    nombre: 'Salobreña',
+    storageKey: 'salobrena_registros',
+    fuentes: [
+      { codigo: 'PG', nombre: 'Plaza de Goya' },
+      { codigo: 'PP', nombre: 'Parque Patos' },
+      { codigo: 'CR', nombre: 'Casa Roja' },
+      { codigo: 'PA', nombre: 'Pl. Ayuntamiento' },
+    ],
+    excelNombre: 'FuentesOrnamentales_Salobrena',
+    excelSubtitulo: 'FUENTES ORNAMENTALES — SALOBREÑA',
+  },
+};
+
+let municipioActivo = null;
+let FUENTES = []; // populated by selMunicipio
+
+function selMunicipio(id) {
+  municipioActivo = id;
+  const m = MUNICIPIOS[id];
+
+  // Actualizar fuentes activas
+  FUENTES.length = 0;
+  m.fuentes.forEach(f => FUENTES.push(f));
+
+  // Escuchar registros en tiempo real desde Firebase
+  registros = [];
+  if (window._fbEscuchar) {
+    window._fbEscuchar(id, function(lista) {
+      registros = lista;
+      mostrarEstadoConexion(true);
+      var rolFirebase = rol || document.body.getAttribute('data-rol');
+      if (rolFirebase === 'responsable' || rolFirebase === 'ayuntamiento') {
+        renderResponsable(rolFirebase);
+      }
+    });
+  } else {
+    mostrarEstadoConexion(false);
+  }
+
+  // Mostrar pantalla de inicio con nombre del municipio
+  document.getElementById('pantalla-municipio').style.display = 'none';
+  const inicio = document.getElementById('pantalla-inicio');
+  inicio.style.display = 'flex';
+  inicio.style.flexDirection = 'column';
+  document.getElementById('inicio-titulo').innerHTML = `Fuentes Ornamentales<br>${m.nombre}`;
+}
+
+function volverMunicipio() {
+  document.getElementById('pantalla-inicio').style.display = 'none';
+  document.getElementById('pantalla-municipio').style.display = 'flex';
+  document.getElementById('app').style.display = 'none';
+  municipioActivo = null;
+}
+
+
+const REGISTROS_TIPO = [
+  {
+    id: 'R1', num: 'Nº1', icono: '🧪', freq: 'Semanal/Quincenal',
+    titulo: 'Cloro Residual Libre + Lavado Filtros',
+    actividades: [
+      { id: 'cloro', nombre: 'Cloro Residual Libre (entre 1,5 y 3 ppm)', tipo: 'numero', unidad: 'ppm', min: 0, max: 10, alerta: [0, 1.5, 3] },
+      { id: 'lavado_filtros', nombre: 'Lavado de Filtros Recirculación (S/P FNT Nº5)', tipo: 'check' },
+      { id: 'renovacion', nombre: 'Renovación Total del Agua del Circuito', tipo: 'check' },
+    ]
+  },
+  {
+    id: 'R2', num: 'Nº2', icono: '🔧', freq: 'Mensual',
+    titulo: 'Prefiltros y Equipos Desinfección',
+    actividades: [
+      { id: 'prefiltros_ok', nombre: 'Prefiltros de agua — CORRECTO, sin obstrucción' },
+      { id: 'prefiltros_mal', nombre: 'Prefiltros de agua — Presencia de suciedad' },
+      { id: 'desinfeccion_ok', nombre: 'Equipos desinfección agua — CORRECTO' },
+      { id: 'desinfeccion_mal', nombre: 'Equipos desinfección — Funcionamiento defectuoso' },
+    ]
+  },
+  {
+    id: 'R3', num: 'Nº3', icono: '🌊', freq: 'Trimestral',
+    titulo: 'Conservación y Limpieza de las Fuentes',
+    actividades: [
+      { id: 'boquillas_ok', nombre: 'Estado boquillas — Todo correcto, salida agua homogénea' },
+      { id: 'boquillas_mal', nombre: 'Estado boquillas — Suciedad / corrosión / incrustaciones' },
+      { id: 'bombas_ok', nombre: 'Bombas de impulsión — Todo correcto' },
+      { id: 'bombas_mal', nombre: 'Bombas de impulsión — Corrosión / pérdidas' },
+      { id: 'filtros_recirc_ok', nombre: 'Filtros recirculación — Ausencia / todo correcto' },
+      { id: 'filtros_recirc_mal', nombre: 'Filtros recirculación — Suciedad / incrustaciones' },
+    ]
+  },
+  {
+    id: 'R4', num: 'Nº4', icono: '🏗️', freq: 'Semestral',
+    titulo: 'Estado Conservación Boquillas, Bombas y Filtros',
+    actividades: [
+      { id: 'boquillas_s_ok', nombre: 'Boquillas — Ausencia, todo correcto' },
+      { id: 'boquillas_s_mal', nombre: 'Boquillas — Suciedad, algas y/o lodos' },
+      { id: 'bombas_s_ok', nombre: 'Bombas de impulsión — Ausencia, todo correcto' },
+      { id: 'bombas_s_mal', nombre: 'Bombas de impulsión — Elementos con corrosión' },
+      { id: 'filtro_recirc_s_ok', nombre: 'Filtro recirculación — Ausencia, todo correcto' },
+      { id: 'filtro_recirc_s_mal', nombre: 'Filtro recirculación — Incrustaciones' },
+    ]
+  },
+  {
+    id: 'R5', num: 'Nº5', icono: '🔍', freq: 'Anual',
+    titulo: 'Revisión General, Pulverización y Lavado Manual',
+    actividades: [
+      { id: 'revision_ok', nombre: 'Revisión general instalación — Todo correcto' },
+      { id: 'revision_mal', nombre: 'Revisión general — Presenta deficiencias' },
+      { id: 'pulverizacion_ok', nombre: 'Revisión forma pulverización — Todo correcto' },
+      { id: 'pulverizacion_mal', nombre: 'Pulverización — Defectos en salida del agua' },
+      { id: 'lavado_manual', nombre: 'Lavado manual de filtros' },
+      { id: 'sustitucion', nombre: 'Filtros a sustituir (limpieza y desinfección previa)' },
+    ]
+  },
+  {
+    id: 'RS', num: 'S', icono: '📅', freq: 'Semanal',
+    titulo: 'Parte Semanal de Mantenimiento',
+    actividades: [
+      { id: 'limpieza', nombre: 'Nivel de limpieza (cal, lodos, incrustaciones, corrosión)' },
+      { id: 'dosificador', nombre: 'Funcionamiento dosificador automático (bomba, válvula, contrapeso)' },
+      { id: 'chorros', nombre: 'Chorros de impulsión' },
+      { id: 'filtros_lim', nombre: 'Limpieza de filtros (desagüe fuente, depósito, bomba)' },
+      { id: 'sistema', nombre: 'Funcionamiento general del sistema (eléctrico, agua, pérdidas)' },
+    ]
+  },
+  {
+    id: 'RPM', num: 'PM', icono: '🔴', freq: 'Parada / Marcha',
+    titulo: 'Parada / Puesta en Marcha',
+    especial: 'parada_marcha',
+  },
+  {
+    id: 'RIN', num: 'IN', icono: '⚠️', freq: 'Incidencia',
+    titulo: 'Registro de Incidencias',
+    especial: 'incidencia',
+  },
+];
+
+// ===== ESTADO =====
+let rol = null;
+let tipoSeleccionado = null;
+let fuentesSeleccionadas = [];
+let estadosCheck = {};
+let registros = [];
+
+function mostrarArchivoSubido(input, targetId) {
+  const el = document.getElementById(targetId);
+  if (!el) return;
+  if (input.files && input.files[0]) {
+    const nombre = input.files[0].name;
+    const size = (input.files[0].size / 1024).toFixed(0);
+    el.innerHTML = '✅ <strong>' + nombre + '</strong> (' + size + ' KB)';
+    el.style.color = 'var(--verde)';
+    showToast('✅ Documento seleccionado: ' + nombre);
+  }
+}
+
+function mostrarEstadoConexion(ok) {
+  let ind = document.getElementById('ind-conexion');
+  if (!ind) {
+    ind = document.createElement('div');
+    ind.id = 'ind-conexion';
+    ind.style.cssText = 'position:fixed;bottom:4.5rem;left:50%;transform:translateX(-50%);padding:0.4rem 1.2rem;border-radius:20px;font-size:0.75rem;font-weight:700;z-index:9999;transition:opacity 0.5s;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,0.2);';
+    document.body.appendChild(ind);
+  }
+  if (ok) {
+    ind.style.background = '#06d6a0';
+    ind.style.color = 'white';
+    ind.style.opacity = '1';
+    ind.textContent = '🟢 Datos sincronizados';
+    setTimeout(function(){ ind.style.opacity = '0'; }, 2500);
+  } else {
+    ind.style.background = '#ef233c';
+    ind.style.color = 'white';
+    ind.style.opacity = '1';
+    ind.textContent = '🔴 Sin conexion Firebase';
+  }
+}
+
+async function guardarRegistros(registro) {
+  if (!window._fbGuardar || !municipioActivo) { mostrarEstadoConexion(false); return false; }
+  try {
+    await window._fbGuardar(municipioActivo, registro);
+    return true;
+  } catch(e) {
+    mostrarEstadoConexion(false);
+    return false;
+  }
+}
+
+// ===== NAVEGACIÓN =====
+// ===== CONTRASEÑAS =====
+const CLAVES = {
+  almunecar: { trabajador: 'Sanisur123', responsable: 'Sanisur1234@', ayuntamiento: 'Almuñecar123' },
+  salobrena:  { trabajador: 'Sanisur123', responsable: 'Sanisur1234@', ayuntamiento: 'Salobreña123' }
+};
+
+let rolPendiente = null;
+
+function pedirClave(r) {
+  rolPendiente = r;
+  const iconos = { trabajador: '👷', responsable: '📊', ayuntamiento: '🏛️' };
+  const titulos = { trabajador: 'Acceso Trabajador', responsable: 'Acceso Responsable', ayuntamiento: 'Acceso Ayuntamiento' };
+  document.getElementById('modal-clave-icono').textContent = iconos[r] || '🔒';
+  document.getElementById('modal-clave-titulo').textContent = titulos[r] || 'Acceso';
+  document.getElementById('input-clave').value = '';
+  document.getElementById('clave-error').textContent = '';
+  const modal = document.getElementById('modal-clave');
+  modal.style.display = 'flex';
+  setTimeout(() => document.getElementById('input-clave').focus(), 100);
+}
+
+function verificarClave() {
+  const municipio = municipioActivo === 'almunecar' ? 'almunecar' : 'salobrena';
+  const clavesM = CLAVES[municipio] || CLAVES['almunecar'];
+  const clave = document.getElementById('input-clave').value;
+  const claveCorrecta = clavesM[rolPendiente];
+  if (clave === claveCorrecta) {
+    cerrarModalClave();
+    entrar(rolPendiente);
+  } else {
+    document.getElementById('clave-error').textContent = '❌ Contraseña incorrecta';
+    document.getElementById('input-clave').value = '';
+    document.getElementById('input-clave').focus();
+  }
+}
+
+function cerrarModalClave() {
+  document.getElementById('modal-clave').style.display = 'none';
+  rolPendiente = null;
+}
+
+function entrar(r) {
+  rol = r;
+  document.getElementById('pantalla-inicio').style.display = 'none';
+  const app = document.getElementById('app');
+  app.style.display = 'flex';
+  app.style.flexDirection = 'column';
+
+  if (r === 'trabajador') {
+    document.getElementById('topbar-titulo').textContent = 'Nuevo Registro';
+    document.getElementById('topbar-badge').textContent = 'TRABAJADOR';
+    document.getElementById('vista-trabajador').style.display = 'block';
+    document.getElementById('vista-responsable').style.display = 'none';
+    initTrabajador();
+  } else if (r === 'ayuntamiento') {
+    document.getElementById('topbar-titulo').textContent = 'Panel Ayuntamiento';
+    document.getElementById('topbar-badge').textContent = 'AYUNTAMIENTO';
+    document.getElementById('topbar-badge').style.background = '#2d6a4f';
+    document.getElementById('vista-trabajador').style.display = 'none';
+    document.getElementById('vista-responsable').style.display = 'block';
+    document.body.setAttribute('data-rol', 'ayuntamiento');
+    renderResponsable('ayuntamiento');
+  } else {
+    document.getElementById('topbar-titulo').textContent = 'Panel Responsable';
+    document.getElementById('topbar-badge').textContent = 'RESPONSABLE';
+    document.getElementById('vista-trabajador').style.display = 'none';
+    document.getElementById('vista-responsable').style.display = 'block';
+    renderResponsable('responsable');
+  }
+}
+
+function volver() {
+  document.getElementById('pantalla-inicio').style.display = 'flex';
+  document.getElementById('pantalla-inicio').style.flexDirection = 'column';
+  document.getElementById('app').style.display = 'none';
+  rol = null;
+}
+
+// ===== TRABAJADOR =====
+function initTrabajador() {
+  // Set fecha hoy
+  const hoy = new Date().toISOString().split('T')[0];
+  document.getElementById('fecha-registro').value = hoy;
+
+  // Renderizar tipos de registro
+  const grid = document.getElementById('tipo-grid');
+  grid.innerHTML = REGISTROS_TIPO.map(t => `
+    <div class="tipo-card" id="tipo-${t.id}" onclick="selTipo('${t.id}')">
+      <div class="tipo-icono">${t.icono}</div>
+      <div class="tipo-freq">${t.freq}</div>
+      <div class="tipo-num">Registro ${t.num}</div>
+    </div>
+  `).join('');
+
+  // Renderizar fuentes
+  const fg = document.getElementById('fuente-grid');
+  fg.innerHTML = FUENTES.map(f => `
+    <div class="fuente-chip" id="fc-${f.codigo}" onclick="toggleFuente('${f.codigo}')">
+      <span class="nombre">${f.nombre}</span>
+      <span class="codigo">${f.codigo}</span>
+    </div>
+  `).join('');
+
+  tipoSeleccionado = null;
+  fuentesSeleccionadas = [];
+  estadosCheck = {};
+
+  document.getElementById('paso-tipo').style.display = 'block';
+  document.getElementById('paso-formulario').style.display = 'none';
+  document.getElementById('paso-exito').style.display = 'none';
+  document.getElementById('paso-exito').classList.remove('visible');
+}
+
+function selTipo(id) {
+  tipoSeleccionado = id;
+  document.querySelectorAll('.tipo-card').forEach(c => c.classList.remove('activo'));
+  const el = document.getElementById('tipo-' + id);
+  if (el) el.classList.add('activo');
+}
+
+function toggleFuente(codigo) {
+  const idx = fuentesSeleccionadas.indexOf(codigo);
+  if (idx >= 0) {
+    fuentesSeleccionadas.splice(idx, 1);
+    document.getElementById('fc-' + codigo).classList.remove('activo');
+  } else {
+    fuentesSeleccionadas.push(codigo);
+    document.getElementById('fc-' + codigo).classList.add('activo');
+  }
+}
+
+function irPaso2() {
+  const nombre = document.getElementById('nombre-trabajador').value.trim();
+  if (!nombre) { showToast('⚠️ Indica tu nombre'); return; }
+  if (!tipoSeleccionado) { showToast('⚠️ Selecciona el tipo de registro'); return; }
+  if (fuentesSeleccionadas.length === 0) { showToast('⚠️ Selecciona al menos una fuente'); return; }
+
+  estadosCheck = {};
+  const tipo = REGISTROS_TIPO.find(t => t.id === tipoSeleccionado);
+
+  document.getElementById('paso-tipo').style.display = 'none';
+  document.getElementById('paso-formulario').style.display = 'block';
+
+  const fc = document.getElementById('form-contenido');
+
+  // Título
+  let html = `<div class="card"><div class="card-titulo">${tipo.icono} ${tipo.titulo}</div>`;
+
+  if (tipo.id === 'R1') {
+    // Registro especial con valor numérico de cloro
+    html += `<div class="info-box">📌 Según RD 287/22 Andalucía, el cloro residual libre NO puede bajar de <strong>1,5 mg/l</strong></div>`;
+
+    fuentesSeleccionadas.forEach(fc_code => {
+      const fuente = FUENTES.find(f => f.codigo === fc_code);
+      html += `<div class="seccion-titulo">⛲ ${fuente.nombre} (${fuente.codigo})</div>`;
+      html += `
+        <div class="campo" id="bloque-cloro-${fc_code}">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.6rem;">
+            <label style="margin-bottom:0">Cloro Residual Libre (ppm)</label>
+            <button class="btn-parada" id="btn-parada-${fc_code}" onclick="toggleParada('${fc_code}')"
+              style="padding:0.3rem 0.75rem;border-radius:20px;border:2px solid #ef233c;background:white;color:#ef233c;font-size:0.75rem;font-weight:700;cursor:pointer;white-space:nowrap;font-family:'Syne',sans-serif;">
+              🔴 Fuente Parada
+            </button>
+          </div>
+          <div id="cloro-input-${fc_code}">
+            <input type="number" id="cloro-${fc_code}" step="0.1" min="0" max="10" placeholder="ej: 2.1" oninput="actualizarCloro('${fc_code}', this.value)" />
+            <div class="cloro-scale"><div class="cloro-bajo"></div><div class="cloro-ok"></div><div class="cloro-alto"></div></div>
+            <div class="cloro-labels"><span>0</span><span>1.5 (mín)</span><span>3</span><span>10</span></div>
+          </div>
+          <div id="cloro-parada-${fc_code}" style="display:none;background:#fff0f0;border-radius:10px;padding:0.7rem 1rem;color:#ef233c;font-weight:600;font-size:0.88rem;text-align:center;">
+            🔴 Fuente en parada — Sin medición de cloro
+          </div>
+        </div>
+        <div class="campo" id="bloque-lavado-${fc_code}">
+          <label>Lavado de Filtros (S/P FNT Nº5)</label>
+          <div class="estado-btns">
+            <button class="estado-btn ok" onclick="setEstado('lav-${fc_code}', 'ok', this)" title="Correcto">✅<span style="display:block;font-size:0.6rem;font-weight:700;color:inherit;">Correcto</span></button>
+            <button class="estado-btn mal" onclick="setEstado('lav-${fc_code}', 'mal', this)" title="Incorrecto">❌<span style="display:block;font-size:0.6rem;font-weight:700;color:inherit;">Incorrecto</span></button>
+            <button class="estado-btn nd" onclick="setEstado('lav-${fc_code}', 'nd', this)" title="No realizado">➖<span style="display:block;font-size:0.6rem;font-weight:700;color:inherit;">No realizado</span></button>
+          </div>
+        </div>
+        <div class="campo" id="bloque-ren-${fc_code}">
+          <label>Renovación Total del Agua</label>
+          <div class="estado-btns">
+            <button class="estado-btn ok" onclick="setEstado(\'ren-${fc_code}\', \'ok\', this)" title="Correcto">✅<span style="display:block;font-size:0.6rem;font-weight:700;color:inherit;">Correcto</span></button>
+            <button class="estado-btn mal" onclick="setEstado(\'ren-${fc_code}\', \'mal\', this)" title="Incorrecto">❌<span style="display:block;font-size:0.6rem;font-weight:700;color:inherit;">Incorrecto</span></button>
+            <button class="estado-btn nd" onclick="setEstado(\'ren-${fc_code}\', \'nd\', this)" title="No realizado">➖<span style="display:block;font-size:0.6rem;font-weight:700;color:inherit;">No realizado</span></button>
+          </div>
+        </div>
+        <hr style="border:none;border-top:1px solid #f0f0f0;margin:0.5rem 0;">
+      `;
+    });
+
+  } else if (tipo.especial === 'parada_marcha') {
+    html += `<div class="info-box">📋 Registra la parada o puesta en marcha de una o varias fuentes, indicando el motivo y las observaciones.</div>`;
+    fuentesSeleccionadas.forEach(fc_code => {
+      const fuente = FUENTES.find(f => f.codigo === fc_code);
+      html += `<div class="seccion-titulo">⛲ ${fuente.nombre} (${fuente.codigo})</div>`;
+      html += `
+        <div class="campo">
+          <label>Tipo de Acción</label>
+          <div style="display:flex;gap:0.6rem;">
+            <button class="btn-accion-pm" id="btn-parada-pm-${fc_code}" onclick="setAccionPM('${fc_code}','parada',this)"
+              style="flex:1;padding:0.8rem;border-radius:12px;border:2px solid #ef233c;background:white;color:#ef233c;font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;cursor:pointer;">
+              🔴 PARADA
+            </button>
+            <button class="btn-accion-pm" id="btn-marcha-pm-${fc_code}" onclick="setAccionPM('${fc_code}','marcha',this)"
+              style="flex:1;padding:0.8rem;border-radius:12px;border:2px solid #06d6a0;background:white;color:#06d6a0;font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;cursor:pointer;">
+              🟢 PUESTA EN MARCHA
+            </button>
+          </div>
+        </div>
+        <div class="campo">
+          <label>Motivo</label>
+          <select id="motivo-pm-${fc_code}">
+            <option value="">— Seleccionar motivo —</option>
+            <option>Mantenimiento programado</option>
+            <option>Avería</option>
+            <option>Limpieza y desinfección</option>
+            <option>Obra / trabajos en la zona</option>
+            <option>Orden municipal</option>
+            <option>Fin de temporada</option>
+            <option>Inicio de temporada</option>
+            <option>Otro (ver observaciones)</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label>Hora</label>
+          <input type="time" id="hora-pm-${fc_code}" />
+        </div>
+        <hr style="border:none;border-top:1px solid #f0f0f0;margin:0.5rem 0;">
+      `;
+    });
+
+  } else if (tipo.especial === 'incidencia') {
+    html += `<div class="info-box">⚠️ Describe la incidencia detectada, la fuente afectada y las medidas que has adoptado.</div>`;
+    fuentesSeleccionadas.forEach(fc_code => {
+      const fuente = FUENTES.find(f => f.codigo === fc_code);
+      html += `<div class="seccion-titulo">⛲ ${fuente.nombre} (${fuente.codigo})</div>`;
+      html += `
+        <div class="campo">
+          <label>Tipo de Incidencia</label>
+          <select id="tipo-inc-${fc_code}">
+            <option value="">— Seleccionar tipo —</option>
+            <option>Avería eléctrica</option>
+            <option>Avería mecánica (bomba, motor)</option>
+            <option>Pérdida de agua / fuga</option>
+            <option>Cloro fuera de rango</option>
+            <option>Obstrucción en filtros/boquillas</option>
+            <option>Vandalismo / daños externos</option>
+            <option>Agua turbia o con olor</option>
+            <option>Sistema de dosificación defectuoso</option>
+            <option>Otro (ver descripción)</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label>Gravedad</label>
+          <div style="display:flex;gap:0.5rem;">
+            <button onclick="setEstado('grav-${fc_code}','leve',this)" class="estado-btn nd" style="flex:1;width:auto;height:auto;padding:0.5rem;font-size:0.78rem;font-family:'Syne',sans-serif;font-weight:700;">🟡 LEVE</button>
+            <button onclick="setEstado('grav-${fc_code}','media',this)" class="estado-btn nd" style="flex:1;width:auto;height:auto;padding:0.5rem;font-size:0.78rem;font-family:'Syne',sans-serif;font-weight:700;">🟠 MEDIA</button>
+            <button onclick="setEstado('grav-${fc_code}','grave',this)" class="estado-btn mal" style="flex:1;width:auto;height:auto;padding:0.5rem;font-size:0.78rem;font-family:'Syne',sans-serif;font-weight:700;">🔴 GRAVE</button>
+          </div>
+        </div>
+        <div class="campo">
+          <label>Descripción de la Incidencia</label>
+          <textarea id="desc-inc-${fc_code}" placeholder="Describe qué ha pasado..."></textarea>
+        </div>
+        <div class="campo">
+          <label>Medidas Adoptadas</label>
+          <textarea id="medidas-${fc_code}" placeholder="Indica qué medidas se han tomado o qué está pendiente..."></textarea>
+        </div>
+        <div class="campo">
+          <label>¿Fuente operativa tras la incidencia?</label>
+          <div class="estado-btns">
+            <button class="estado-btn ok" onclick="setEstado('operativa-${fc_code}','si',this)" style="width:auto;padding:0.4rem 1rem;font-size:0.8rem">✅ Sí</button>
+            <button class="estado-btn mal" onclick="setEstado('operativa-${fc_code}','no',this)" style="width:auto;padding:0.4rem 1rem;font-size:0.8rem">❌ No</button>
+          </div>
+        </div>
+        <hr style="border:none;border-top:1px solid #f0f0f0;margin:0.5rem 0;">
+      `;
+    });
+
+  } else {
+    // Tabla de checks por fuente
+    html += '<table class="check-tabla"><thead><tr><th>Actividad</th>';
+    fuentesSeleccionadas.forEach(fc_code => {
+      const fuente = FUENTES.find(f => f.codigo === fc_code);
+      html += `<th>${fc_code}<br><span style="font-size:0.6rem;font-weight:400">${fuente.nombre.split(' ')[0]}</span></th>`;
+    });
+    html += '</tr></thead><tbody>';
+
+    tipo.actividades.forEach(act => {
+      html += `<tr><td class="actividad-td">${act.nombre}</td>`;
+      fuentesSeleccionadas.forEach(fc_code => {
+        const key = `${act.id}-${fc_code}`;
+        html += `<td>
+          <div class="estado-btns" style="flex-direction:column; gap:0.25rem;">
+            <button class="estado-btn ok" style="width:28px;height:28px;font-size:0.8rem" onclick="setEstado('${key}', 'ok', this)">✅</button>
+            <button class="estado-btn mal" style="width:28px;height:28px;font-size:0.8rem" onclick="setEstado('${key}', 'mal', this)">❌</button>
+            <button class="estado-btn nd" style="width:28px;height:28px;font-size:0.8rem" onclick="setEstado('${key}', 'nd', this)">➖</button>
+          </div>
+        </td>`;
+      });
+      html += '</tr>';
+    });
+
+    html += '</tbody></table>';
+  }
+
+  html += '</div>';
+  fc.innerHTML = html;
+
+  // Init signature pads after DOM update
+  setTimeout(() => {
+    initFirma('firma-tecnico');
+  }, 50);
+}
+
+// ===== FIRMAS =====
+function initFirma(canvasId) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  // Scale for retina
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * window.devicePixelRatio;
+  canvas.height = 120 * window.devicePixelRatio;
+  ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  ctx.strokeStyle = '#0a3d62';
+  ctx.lineWidth = 2.5;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+
+  let drawing = false;
+  let lastX = 0, lastY = 0;
+
+  function getPos(e) {
+    const r = canvas.getBoundingClientRect();
+    const src = e.touches ? e.touches[0] : e;
+    return [(src.clientX - r.left), (src.clientY - r.top)];
+  }
+
+  function start(e) {
+    e.preventDefault();
+    drawing = true;
+    [lastX, lastY] = getPos(e);
+    ctx.beginPath();
+    ctx.arc(lastX, lastY, 1.2, 0, Math.PI * 2);
+    ctx.fillStyle = '#0a3d62';
+    ctx.fill();
+  }
+  function move(e) {
+    if (!drawing) return;
+    e.preventDefault();
+    const [x, y] = getPos(e);
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(x, y);
+    ctx.stroke();
+    [lastX, lastY] = [x, y];
+  }
+  function stop(e) { drawing = false; }
+
+  canvas.addEventListener('mousedown', start);
+  canvas.addEventListener('mousemove', move);
+  canvas.addEventListener('mouseup', stop);
+  canvas.addEventListener('mouseleave', stop);
+  canvas.addEventListener('touchstart', start, { passive: false });
+  canvas.addEventListener('touchmove', move, { passive: false });
+  canvas.addEventListener('touchend', stop);
+}
+
+function limpiarFirma(canvasId) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+const SELLO_RESPONSABLE = null;
+function getFirmaData(canvasId) {
+  if (canvasId === 'firma-responsable') return SELLO_RESPONSABLE;
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return null;
+  const ctx = canvas.getContext('2d');
+  const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+  const hasContent = data.some((v, i) => i % 4 === 3 && v > 0);
+  return hasContent ? canvas.toDataURL('image/jpeg', 0.4) : null;
+}
+
+function actualizarCloro(codigo, valor) {
+  estadosCheck['cloro-' + codigo] = parseFloat(valor) || 0;
+}
+
+function toggleParada(codigo) {
+  const btn = document.getElementById('btn-parada-' + codigo);
+  const input = document.getElementById('cloro-input-' + codigo);
+  const parada = document.getElementById('cloro-parada-' + codigo);
+  const esParada = estadosCheck['parada-' + codigo] === true;
+
+  if (esParada) {
+    estadosCheck['parada-' + codigo] = false;
+    delete estadosCheck['cloro-' + codigo];
+    btn.style.background = 'white';
+    btn.style.color = '#ef233c';
+    input.style.display = 'block';
+    parada.style.display = 'none';
+  } else {
+    estadosCheck['parada-' + codigo] = true;
+    estadosCheck['cloro-' + codigo] = 'PARADA';
+    btn.style.background = '#ef233c';
+    btn.style.color = 'white';
+    input.style.display = 'none';
+    parada.style.display = 'block';
+  }
+}
+
+function setAccionPM(codigo, accion, btn) {
+  estadosCheck['accion-pm-' + codigo] = accion;
+  const paBtn = document.getElementById('btn-parada-pm-' + codigo);
+  const maBtn = document.getElementById('btn-marcha-pm-' + codigo);
+  paBtn.style.background = accion === 'parada' ? '#ef233c' : 'white';
+  paBtn.style.color = accion === 'parada' ? 'white' : '#ef233c';
+  maBtn.style.background = accion === 'marcha' ? '#06d6a0' : 'white';
+  maBtn.style.color = accion === 'marcha' ? 'white' : '#06d6a0';
+}
+
+function setEstado(key, val, btn) {
+  estadosCheck[key] = val;
+  const contenedor = btn.parentElement;
+  contenedor.querySelectorAll('.estado-btn').forEach(b => {
+    b.classList.remove('sel');
+  });
+  btn.classList.add('sel');
+}
+
+function enviarRegistro() {
+  const nombre = document.getElementById('nombre-trabajador').value.trim();
+  const fecha = document.getElementById('fecha-registro').value;
+  const obs = document.getElementById('observaciones').value.trim();
+  const tipo = REGISTROS_TIPO.find(t => t.id === tipoSeleccionado);
+
+  // Capturar campos especiales de parada/marcha e incidencias
+  const extraData = {};
+  if (tipo.especial === 'parada_marcha') {
+    fuentesSeleccionadas.forEach(fc_code => {
+      extraData['motivo-pm-' + fc_code] = document.getElementById('motivo-pm-' + fc_code)?.value || '';
+      extraData['hora-pm-' + fc_code] = document.getElementById('hora-pm-' + fc_code)?.value || '';
+    });
+  }
+  if (tipo.especial === 'incidencia') {
+    fuentesSeleccionadas.forEach(fc_code => {
+      extraData['tipo-inc-' + fc_code] = document.getElementById('tipo-inc-' + fc_code)?.value || '';
+      extraData['desc-inc-' + fc_code] = document.getElementById('desc-inc-' + fc_code)?.value || '';
+      extraData['medidas-' + fc_code] = document.getElementById('medidas-' + fc_code)?.value || '';
+    });
+  }
+
+  const registro = {
+    id: Date.now(),
+    tipo: tipo.id,
+    tipoNombre: tipo.titulo,
+    tipoNum: tipo.num,
+    freq: tipo.freq,
+    icono: tipo.icono,
+    trabajador: nombre,
+    fecha: fecha,
+    fuentes: [...fuentesSeleccionadas],
+    estados: { ...estadosCheck },
+    extra: extraData,
+    observaciones: obs,
+    notaResponsable: '',
+    firmaTecnico: getFirmaData('firma-tecnico'),
+    firmaResponsable: getFirmaData('firma-responsable'),
+    timestamp: new Date().toISOString(),
+  };
+
+  const btnEnviar = document.querySelector('.btn-enviar');
+  if (btnEnviar) { btnEnviar.disabled = true; btnEnviar.textContent = '⏳ Enviando...'; }
+
+  guardarRegistros(registro).then(function(ok) {
+    if (btnEnviar) { btnEnviar.disabled = false; btnEnviar.textContent = '✅ Enviar Registro'; }
+    if (ok !== false) {
+      document.getElementById('paso-formulario').style.display = 'none';
+      const exito = document.getElementById('paso-exito');
+      exito.style.display = 'flex';
+      exito.classList.add('visible');
+      showToast('✅ Registro enviado y sincronizado');
+    } else {
+      showToast('❌ Error al guardar. Verifica la conexion.');
+    }
+  });
+}
+
+function nuevoRegistro() {
+  initTrabajador();
+}
+
+// ===== RESPONSABLE =====
+function renderResponsable(rolActual) {
+  // Actualizar título y badge según rol
+  var rolEfectivo = rolActual || rol || document.body.getAttribute('data-rol') || '';
+  var esAyuntamiento = (rolEfectivo === 'ayuntamiento') || (document.body.getAttribute('data-rol') === 'ayuntamiento');
+  if (esAyuntamiento) {
+    document.getElementById('topbar-titulo').textContent = 'Panel Ayuntamiento';
+    document.getElementById('topbar-badge').textContent = 'AYUNTAMIENTO';
+    document.getElementById('topbar-badge').style.background = '#2d6a4f';
+  } else {
+    document.getElementById('topbar-titulo').textContent = 'Panel Responsable';
+    document.getElementById('topbar-badge').textContent = 'RESPONSABLE';
+    document.getElementById('topbar-badge').style.background = '';
+  }
+  // Stats
+  const total = registros.length;
+  const conIncidencia = registros.filter(r => tieneIncidencia(r)).length;
+  const sinIncidencia = total - conIncidencia;
+
+  document.getElementById('stats-grid').innerHTML = `
+    <div class="stat-card stat-total">
+      <div class="stat-numero">${total}</div>
+      <div class="stat-label">Total</div>
+    </div>
+    <div class="stat-card stat-ok">
+      <div class="stat-numero">${sinIncidencia}</div>
+      <div class="stat-label">Sin incid.</div>
+    </div>
+    <div class="stat-card stat-mal">
+      <div class="stat-numero">${conIncidencia}</div>
+      <div class="stat-label">Con incid.</div>
+    </div>
+  `;
+
+  // Filtros
+  const tipos = ['Todos', ...REGISTROS_TIPO.map(t => t.num)];
+  document.getElementById('filtros-container').innerHTML = tipos.map((t, i) =>
+    `<button class="filtro-btn ${i===0?'activo':''}" onclick="filtrar('${t}', this)">${t==='Todos'?'Todos':(t==='S'||t==='PM'||t==='IN'?'Reg. '+t:'Reg. '+t)}</button>`
+  ).join('');
+
+  renderLista('Todos');
+}
+
+let filtroActivo = 'Todos';
+function filtrar(tipo, btn) {
+  filtroActivo = tipo;
+  document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('activo'));
+  btn.classList.add('activo');
+  renderLista(tipo);
+}
+
+function renderLista(filtro) {
+  const lista = document.getElementById('lista-registros');
+  let regs = filtro === 'Todos' ? registros : registros.filter(r => r.tipoNum === filtro);
+
+  if (regs.length === 0) {
+    lista.innerHTML = `<div class="vacío"><div class="icono-vacío">📋</div><p>No hay registros aún</p></div>`;
+    return;
+  }
+
+  lista.innerHTML = regs.map(r => {
+    const incidencia = tieneIncidencia(r);
+    const fecha = r.fecha ? new Date(r.fecha + 'T00:00:00').toLocaleDateString('es-ES') : '—';
+    return `
+      <div class="registro-item ${incidencia?'tiene-incidencia':''}" ${rol==='ayuntamiento'?'':'onclick="verDetalle('+r.id+')"'} style="${rol==='ayuntamiento'?'cursor:default;':'cursor:pointer;'}">
+        <div class="registro-header">
+          <div class="registro-tipo">${r.icono} Reg. ${r.tipoNum} — ${r.tipoNombre}</div>
+          <div class="registro-fecha">${fecha}</div>
+        </div>
+        <div class="registro-fuentes">
+          ${r.fuentes.map(f => `<span class="fuente-tag">${f}</span>`).join('')}
+        </div>
+        <div class="registro-trabajador">👷 ${r.trabajador} · ${incidencia ? '<span style="color:var(--rojo);font-weight:600">⚠️ Con incidencias</span>' : '<span style="color:var(--verde);font-weight:600">✓ Sin incidencias</span>'}</div>
+        ${r.observaciones ? `<div class="registro-incidencias">📝 ${r.observaciones}</div>` : ''}
+        ${r.notaResponsable ? `<div style="margin-top:0.4rem;background:#e8f4fd;border-radius:8px;padding:0.4rem 0.7rem;font-size:0.78rem;color:var(--azul);font-weight:500">✏️ Nota responsable: ${r.notaResponsable}</div>` : ''}
+      </div>
+    `;
+  }).join('');
+}
+
+function tieneIncidencia(r) {
+  if (r.tipo === 'RIN') return true;
+  return Object.entries(r.estados).some(([k, v]) => v === 'mal' || v === 'grave');
+}
+
+function verDetalle(id) {
+  if (rol === 'ayuntamiento' || document.body.getAttribute('data-rol') === 'ayuntamiento') return; // Solo lectura
+  const r = registros.find(x => x.id === id);
+  if (!r) return;
+  const fecha = r.fecha ? new Date(r.fecha + 'T00:00:00').toLocaleDateString('es-ES', {weekday:'long', year:'numeric', month:'long', day:'numeric'}) : '—';
+
+  let html = `
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.8rem;">
+      <div class="modal-titulo" style="margin-bottom:0">${r.icono} Registro ${r.tipoNum}</div>
+      <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
+    </div>
+    <p style="font-size:0.82rem;color:#888;margin-bottom:1rem">${r.tipoNombre}</p>
+    <div class="detalle-row"><span class="detalle-act">📅 Fecha</span><strong>${fecha}</strong></div>
+    <div class="detalle-row"><span class="detalle-act">👷 Trabajador</span><strong>${r.trabajador}</strong></div>
+    <div class="detalle-row"><span class="detalle-act">⛲ Fuentes</span><span>${r.fuentes.join(', ')}</span></div>
+  `;
+
+  // Mostrar datos especiales de incidencias
+  if (r.tipo === 'RIN' && r.extra) {
+    html += `<div style="margin-top:1rem;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.5rem">Detalles Incidencia</div>`;
+    r.fuentes.forEach(fc_code => {
+      const fuente = FUENTES.find(f => f.codigo === fc_code);
+      const tipoInc = r.extra['tipo-inc-' + fc_code] || '—';
+      const desc = r.extra['desc-inc-' + fc_code] || '—';
+      const medidas = r.extra['medidas-' + fc_code] || '—';
+      const grav = r.estados['grav-' + fc_code] || '—';
+      const operativa = r.estados['operativa-' + fc_code];
+      const gravColor = grav === 'grave' ? '#ef233c' : grav === 'media' ? '#fb8500' : '#f59e0b';
+      html += `
+        <div style="background:#fff8f0;border-radius:10px;padding:0.8rem;margin-bottom:0.6rem;border-left:3px solid #fb8500;">
+          <div style="font-weight:700;font-size:0.85rem;margin-bottom:0.4rem">${fuente?.nombre || fc_code}</div>
+          <div style="font-size:0.82rem;color:#555;margin-bottom:0.3rem">Tipo: <strong>${tipoInc}</strong></div>
+          <div style="font-size:0.82rem;color:#555;margin-bottom:0.3rem">Gravedad: <strong style="color:${gravColor}">${grav.toUpperCase()}</strong></div>
+          <div style="font-size:0.82rem;color:#555;margin-bottom:0.3rem">Descripción: ${desc}</div>
+          <div style="font-size:0.82rem;color:#555;margin-bottom:0.3rem">Medidas: ${medidas}</div>
+          <div style="font-size:0.82rem;color:#555">Operativa: <strong style="color:${operativa==='si'?'#06d6a0':'#ef233c'}">${operativa==='si'?'✅ Sí':operativa==='no'?'❌ No':'—'}</strong></div>
+        </div>
+      `;
+    });
+  }
+
+  // Mostrar datos especiales de parada/marcha
+  if (r.tipo === 'RPM' && r.extra) {
+    html += `<div style="margin-top:1rem;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.5rem">Detalles Parada/Marcha</div>`;
+    r.fuentes.forEach(fc_code => {
+      const fuente = FUENTES.find(f => f.codigo === fc_code);
+      const accion = r.estados['accion-pm-' + fc_code];
+      const motivo = r.extra['motivo-pm-' + fc_code] || '—';
+      const hora = r.extra['hora-pm-' + fc_code] || '—';
+      const esParada = accion === 'parada';
+      html += `
+        <div style="background:${esParada?'#fff0f0':'#f0fff8'};border-radius:10px;padding:0.8rem;margin-bottom:0.6rem;border-left:3px solid ${esParada?'#ef233c':'#06d6a0'};">
+          <div style="font-weight:700;font-size:0.85rem;margin-bottom:0.4rem">${fuente?.nombre || fc_code}</div>
+          <div style="font-size:0.88rem;font-weight:700;color:${esParada?'#ef233c':'#06d6a0'};margin-bottom:0.3rem">${esParada?'🔴 PARADA':'🟢 PUESTA EN MARCHA'}</div>
+          <div style="font-size:0.82rem;color:#555;margin-bottom:0.2rem">Motivo: <strong>${motivo}</strong></div>
+          <div style="font-size:0.82rem;color:#555">Hora: <strong>${hora}</strong></div>
+        </div>
+      `;
+    });
+  }
+
+  // Mostrar estados de cloro
+  if (r.tipo === 'R1') {
+    html += `<div style="margin-top:1rem;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.5rem">Mediciones de Cloro</div>`;
+    r.fuentes.forEach(fc_code => {
+      const fuente = FUENTES.find(f => f.codigo === fc_code);
+      const cloro = r.estados['cloro-' + fc_code];
+      const parada = r.estados['parada-' + fc_code];
+      const lav = r.estados['lav-' + fc_code];
+      const ren = r.estados['ren-' + fc_code];
+      let cloroHtml = '';
+      if (parada || cloro === 'PARADA') {
+        cloroHtml = '<span style="color:#ef233c;font-weight:700">🔴 Fuente en Parada</span>';
+      } else if (typeof cloro === 'number') {
+        const alerta = cloro < 1.5 ? '🔴 BAJO' : cloro > 3 ? '🟠 ALTO' : '🟢 OK';
+        cloroHtml = `<span style="color:${cloro<1.5?'#ef233c':cloro>3?'#fb8500':'#06d6a0'};font-weight:700">${cloro} ppm ${alerta}</span>`;
+      } else { cloroHtml = '—'; }
+      const lavIco = lav === 'ok' ? '✅' : lav === 'mal' ? '❌' : '➖';
+      const renIco = ren === 'ok' ? '✅' : ren === 'mal' ? '❌' : '➖';
+      html += `
+        <div style="background:#f0f8ff;border-radius:10px;padding:0.8rem;margin-bottom:0.6rem;">
+          <div style="font-weight:700;font-size:0.85rem;margin-bottom:0.4rem">⛲ ${fuente?.nombre || fc_code}</div>
+          <div class="detalle-row" style="padding:0.3rem 0"><span class="detalle-act">Cloro libre</span>${cloroHtml}</div>
+          <div class="detalle-row" style="padding:0.3rem 0"><span class="detalle-act">Lavado filtros</span>${lavIco}</div>
+          <div class="detalle-row" style="padding:0.3rem 0;border-bottom:none"><span class="detalle-act">Renovación agua</span>${renIco}</div>
+        </div>
+      `;
+    });
+  }
+
+  // Observaciones trabajador
+  if (r.observaciones) {
+    html += `<div style="margin-top:0.5rem;background:#f8f9fb;border-radius:10px;padding:0.8rem;font-size:0.83rem;color:#555"><strong>📝 Observaciones trabajador:</strong><br>${r.observaciones}</div>`;
+  }
+
+  // Firmas
+  if (r.firmaTecnico || r.firmaResponsable) {
+    html += `<div style="margin-top:1rem;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.7rem">✍️ Firmas</div>`;
+    if (r.firmaTecnico) {
+      html += `<div style="margin-bottom:0.8rem;">
+        <div style="font-size:0.75rem;font-weight:600;color:#888;margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.04em">Firma del Técnico</div>
+        <img src="${r.firmaTecnico}" style="width:100%;border:2px solid #e0e7ef;border-radius:12px;background:#fafbfd;" />
+      </div>`;
+    } else {
+      html += `<div style="margin-bottom:0.8rem;background:#f8f9fb;border-radius:10px;padding:0.7rem;text-align:center;font-size:0.8rem;color:#aaa;">✍️ Sin firma del técnico</div>`;
+    }
+    if (r.firmaResponsable) {
+      html += `<div style="margin-bottom:0.8rem;">
+        <div style="font-size:0.75rem;font-weight:600;color:#888;margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.04em">Firma del Responsable</div>
+        <img src="${r.firmaResponsable}" style="width:100%;border:2px solid #e0e7ef;border-radius:12px;background:#fafbfd;" />
+      </div>`;
+    } else {
+      html += `<div style="margin-bottom:0.8rem;background:#f8f9fb;border-radius:10px;padding:0.7rem;text-align:center;font-size:0.8rem;color:#aaa;">✍️ Sin firma del responsable</div>`;
+    }
+  }
+
+  // ===== SECCIÓN EDICIÓN RESPONSABLE (solo si no es ayuntamiento) =====
+  if (rol !== 'ayuntamiento' && document.body.getAttribute('data-rol') !== 'ayuntamiento') {
+    html += `
+    <div style="margin-top:1.2rem;border-top:2px dashed #e0e7ef;padding-top:1rem;">
+      <div style="font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;color:var(--azul);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.7rem;">✏️ Edición Responsable</div>
+      <div class="campo">
+        <label>Nota del Responsable</label>
+        <textarea id="edit-nota-${r.id}" placeholder="Añade una nota o corrección al registro...">${r.notaResponsable || ''}</textarea>
+      </div>
+      <div class="campo">
+        <label>Modificar Trabajador</label>
+        <input type="text" id="edit-trab-${r.id}" value="${r.trabajador}" />
+      </div>
+      <div class="campo">
+        <label>Modificar Fecha</label>
+        <input type="date" id="edit-fecha-${r.id}" value="${r.fecha}" />
+      </div>
+      <div style="display:flex;gap:0.6rem;margin-top:0.5rem;">
+        <button onclick="guardarEdicion(${r.id})"
+          style="flex:1;padding:0.9rem;background:var(--azul);color:white;border:none;border-radius:12px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;cursor:pointer;">
+          💾 Guardar Cambios
+        </button>
+        <button onclick="eliminarRegistro(${r.id})"
+          style="padding:0.9rem 1rem;background:#fff0f0;color:#ef233c;border:2px solid #ef233c;border-radius:12px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;cursor:pointer;">
+          🗑️
+        </button>
+      </div>
+    </div>
+  `;
+  }
+
+  document.getElementById('modal-inner').innerHTML = html;
+  document.getElementById('modal-overlay').classList.add('visible');
+
+  // Si es ayuntamiento, deshabilitar todos los controles del modal
+  if (rol === 'ayuntamiento') {
+    setTimeout(function() {
+      const modal = document.getElementById('modal-inner');
+      if (!modal) return;
+      modal.querySelectorAll('input, textarea, button, select').forEach(function(el) {
+        el.disabled = true;
+        el.style.opacity = '0.5';
+        el.style.cursor = 'not-allowed';
+      });
+      // Añadir aviso
+      const aviso = document.createElement('div');
+      aviso.style.cssText = 'background:#fff3cd;border:1px solid #ffc107;border-radius:10px;padding:0.7rem;text-align:center;font-size:0.82rem;color:#856404;margin-top:0.5rem;font-weight:600;';
+      aviso.textContent = '🏛️ Vista de solo lectura — No se pueden realizar modificaciones';
+      modal.appendChild(aviso);
+    }, 50);
+  }
+}
+
+function guardarEdicion(id) {
+  if (rol === 'ayuntamiento' || document.body.getAttribute('data-rol') === 'ayuntamiento') return;
+  const r = registros.find(x => x.id === id);
+  if (!r || !r._fbKey) { showToast('⚠️ Registro sin clave Firebase'); return; }
+  const cambios = {
+    notaResponsable: document.getElementById('edit-nota-' + id)?.value || '',
+    trabajador: document.getElementById('edit-trab-' + id)?.value || r.trabajador,
+    fecha: document.getElementById('edit-fecha-' + id)?.value || r.fecha,
+  };
+  if (window._fbActualizar) {
+    window._fbActualizar(municipioActivo, r._fbKey, cambios)
+      .then(() => { cerrarModal(); showToast('💾 Cambios guardados'); })
+      .catch(() => showToast('❌ Error al guardar cambios'));
+  }
+}
+
+function eliminarRegistro(id) {
+  if (rol === 'ayuntamiento' || document.body.getAttribute('data-rol') === 'ayuntamiento') return;
+  if (!confirm('¿Seguro que quieres eliminar este registro?')) return;
+  const r = registros.find(x => x.id === id);
+  if (!r || !r._fbKey) { showToast('⚠️ Registro sin clave Firebase'); return; }
+  if (window._fbEliminar) {
+    window._fbEliminar(municipioActivo, r._fbKey)
+      .then(() => { cerrarModal(); showToast('🗑️ Registro eliminado'); })
+      .catch(() => showToast('❌ Error al eliminar'));
+  }
+}
+
+function cerrarModal(e) {
+  if (!e || e.target === document.getElementById('modal-overlay')) {
+    document.getElementById('modal-overlay').classList.remove('visible');
+  }
+}
+
+function exportarCSV() {
+  if (registros.length === 0) { showToast('⚠️ No hay registros para exportar'); return; }
+
+  let csv = 'ID,Fecha,Trabajador,Tipo,Fuentes,Tiene Incidencia,Observaciones\n';
+  registros.forEach(r => {
+    const incid = tieneIncidencia(r) ? 'Sí' : 'No';
+    csv += `${r.id},"${r.fecha}","${r.trabajador}","Reg.${r.tipoNum} ${r.tipoNombre}","${r.fuentes.join(' ')}","${incid}","${r.observaciones||''}"\n`;
+  });
+
+  const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `registros_fuentes_${new Date().toISOString().split('T')[0]}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('📥 CSV descargado');
+}
+
+// ===== TRABAJADORES =====
+const TRABAJADORES = [
+  'Abdelwahed Samit',
+  'Kahmis Fare',
+  'Jose Francisco del Carpio Lopez',
+];
+
+function mostrarTrabajadores() {
+  filtrarTrabajadores(document.getElementById('nombre-trabajador').value);
+}
+
+function filtrarTrabajadores(val) {
+  const dd = document.getElementById('dropdown-trabajadores');
+  const texto = val.trim().toLowerCase();
+  let opciones = [...TRABAJADORES];
+  if (texto) opciones = opciones.filter(n => n.toLowerCase().includes(texto));
+
+  // Always show "Nuevo trabajador" option
+  const items = [
+    ...opciones.map(n => `
+      <div onclick="selTrabajador('${n}')" style="
+        padding:0.85rem 1rem;
+        cursor:pointer;
+        font-size:0.92rem;
+        font-weight:500;
+        color:var(--texto);
+        border-bottom:1px solid #f0f0f0;
+        display:flex;align-items:center;gap:0.6rem;
+      " onmouseover="this.style.background='var(--cielo)'" onmouseout="this.style.background='white'">
+        <span style="font-size:1.1rem">👷</span> ${n}
+      </div>
+    `),
+    `<div onclick="selTrabajador('nuevo')" style="
+      padding:0.85rem 1rem;
+      cursor:pointer;
+      font-size:0.88rem;
+      font-weight:600;
+      color:var(--acento);
+      display:flex;align-items:center;gap:0.6rem;
+    " onmouseover="this.style.background='var(--cielo)'" onmouseout="this.style.background='white'">
+      <span style="font-size:1.1rem">➕</span> Nuevo trabajador
+    </div>`
+  ];
+
+  if (items.length === 1 && !texto) {
+    // only "nuevo" shown when empty and no match issues
+  }
+
+  dd.innerHTML = items.join('');
+  dd.style.display = 'block';
+}
+
+function selTrabajador(nombre) {
+  const input = document.getElementById('nombre-trabajador');
+  if (nombre === 'nuevo') {
+    input.value = '';
+    input.placeholder = 'Escribe el nombre completo';
+    input.focus();
+  } else {
+    input.value = nombre;
+  }
+  ocultarTrabajadores();
+}
+
+function ocultarTrabajadores() {
+  const dd = document.getElementById('dropdown-trabajadores');
+  if (dd) dd.style.display = 'none';
+}
+
+
+// ===== UTILS =====
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('visible');
+  setTimeout(() => t.classList.remove('visible'), 3000);
+}
+
+// ===== EXPORTAR EXCEL OFICIAL =====
+function exportarExcel() {
+  if (registros.length === 0) { showToast('⚠️ No hay registros para exportar'); return; }
+
+  const wb = XLSX.utils.book_new();
+  const regs = [...registros].sort((a,b) => (a.fecha||'').localeCompare(b.fecha||''));
+  const fechaHoy = new Date().toLocaleDateString('es-ES', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+  const fechaArchivo = new Date().toISOString().split('T')[0];
+  const muni = municipioActivo ? MUNICIPIOS[municipioActivo] : { nombre: 'Municipio', excelNombre: 'FuentesOrnamentales', excelSubtitulo: 'FUENTES ORNAMENTALES' };
+
+  // ── Estilos ──
+  const S = {
+    titulo:     { font:{bold:true,sz:15,color:{rgb:'FFFFFF'}}, fill:{fgColor:{rgb:'0A3D62'}}, alignment:{horizontal:'center',vertical:'center'} },
+    subtitulo:  { font:{bold:true,sz:10,color:{rgb:'FFFFFF'}}, fill:{fgColor:{rgb:'1A6FA6'}}, alignment:{horizontal:'center',vertical:'center'} },
+    info:       { font:{sz:9,color:{rgb:'555555'}},            fill:{fgColor:{rgb:'F0F4F8'}}, alignment:{horizontal:'left',vertical:'center'} },
+    cab:        { font:{bold:true,sz:9,color:{rgb:'FFFFFF'}},  fill:{fgColor:{rgb:'00B4D8'}}, alignment:{horizontal:'center',vertical:'center',wrapText:true}, border:{top:{style:'thin',color:{rgb:'0A3D62'}},bottom:{style:'medium',color:{rgb:'0A3D62'}},left:{style:'thin',color:{rgb:'0A3D62'}},right:{style:'thin',color:{rgb:'0A3D62'}}} },
+    cabAzul:    { font:{bold:true,sz:9,color:{rgb:'FFFFFF'}},  fill:{fgColor:{rgb:'0A3D62'}}, alignment:{horizontal:'center',vertical:'center',wrapText:true} },
+    fila:       { font:{sz:9},  alignment:{vertical:'center',wrapText:true}, border:{bottom:{style:'thin',color:{rgb:'DEE5EE'}},right:{style:'thin',color:{rgb:'DEE5EE'}}} },
+    filaAlt:    { font:{sz:9},  fill:{fgColor:{rgb:'F5F8FC'}}, alignment:{vertical:'center',wrapText:true}, border:{bottom:{style:'thin',color:{rgb:'DEE5EE'}},right:{style:'thin',color:{rgb:'DEE5EE'}}} },
+    ok:         { font:{bold:true,sz:9,color:{rgb:'FFFFFF'}},  fill:{fgColor:{rgb:'06D6A0'}}, alignment:{horizontal:'center',vertical:'center'} },
+    alerta:     { font:{bold:true,sz:9,color:{rgb:'FFFFFF'}},  fill:{fgColor:{rgb:'EF233C'}}, alignment:{horizontal:'center',vertical:'center'} },
+    naranja:    { font:{bold:true,sz:9,color:{rgb:'FFFFFF'}},  fill:{fgColor:{rgb:'FB8500'}}, alignment:{horizontal:'center',vertical:'center'} },
+    gris:       { font:{sz:9,color:{rgb:'AAAAAA'}},            alignment:{horizontal:'center',vertical:'center'} },
+    parada:     { font:{bold:true,sz:9,color:{rgb:'FFFFFF'}},  fill:{fgColor:{rgb:'6B7280'}}, alignment:{horizontal:'center',vertical:'center'} },
+    numOk:      { font:{bold:true,sz:10,color:{rgb:'06D6A0'}}, alignment:{horizontal:'center',vertical:'center'} },
+    numAlerta:  { font:{bold:true,sz:10,color:{rgb:'EF233C'}}, alignment:{horizontal:'center',vertical:'center'} },
+    numNaranja: { font:{bold:true,sz:10,color:{rgb:'FB8500'}}, alignment:{horizontal:'center',vertical:'center'} },
+    centro:     { font:{sz:9}, alignment:{horizontal:'center',vertical:'center'} },
+    pie:        { font:{italic:true,sz:8,color:{rgb:'888888'}}, alignment:{horizontal:'left'} },
+  };
+
+  function c(v, s) { return { v: v ?? '', s, t: typeof v === 'number' ? 'n' : 's' }; }
+  function fmtFecha(f) { return f ? new Date(f+'T00:00:00').toLocaleDateString('es-ES') : '—'; }
+  function estadoTxt(v) {
+    if (v === 'ok' || v === 'si') return 'CORRECTO';
+    if (v === 'mal' || v === 'no') return 'INCORRECTO';
+    if (v === 'nd') return 'N/A';
+    if (v === 'PARADA') return 'PARADA';
+    return v || '—';
+  }
+  function estadoS(v) {
+    if (v === 'ok' || v === 'si') return S.ok;
+    if (v === 'mal' || v === 'no') return S.alerta;
+    if (v === 'PARADA') return S.parada;
+    return S.gris;
+  }
+
+  function cabeceraHoja(ws, titulo, subtitulo, ncols, extraInfo) {
+    // Fila 1: título principal
+    ws.push([c(titulo, S.titulo), ...Array(ncols-1).fill(c('', S.titulo))]);
+    // Fila 2: subtítulo
+    ws.push([c(muni.excelSubtitulo, S.subtitulo), ...Array(ncols-1).fill(c('', S.subtitulo))]);
+    // Fila 3: info generación
+    ws.push([c(`Documento generado: ${fechaHoy}`, S.info), ...Array(ncols-1).fill(c('', S.info))]);
+    if (extraInfo) ws.push([c(extraInfo, S.info), ...Array(ncols-1).fill(c('', S.info))]);
+    ws.push([c('', {})]);
+  }
+
+  function finalizarHoja(aoa, ncols, nFilasTitulo) {
+    const sh = XLSX.utils.aoa_to_sheet(aoa);
+    // Merge title rows
+    for (let r = 0; r < nFilasTitulo; r++) {
+      if (!sh['!merges']) sh['!merges'] = [];
+      sh['!merges'].push({ s:{r,c:0}, e:{r,c:ncols-1} });
+    }
+    return sh;
+  }
+
+  // ════════════════════════════════════════════
+  // HOJA 1 — REGISTRO Nº1: CLORO RESIDUAL LIBRE
+  // ════════════════════════════════════════════
+  const regsR1 = regs.filter(r => r.tipo === 'R1');
+  if (regsR1.length > 0) {
+    const aoa = [];
+    const NC = 10;
+    cabeceraHoja(aoa, 'REGISTRO Nº1 — CONTROL DE CLORO RESIDUAL LIBRE', '', NC,
+      'Según RD 287/2022 Andalucía — Valores entre 1,5 y 3,0 mg/l (ppm). No puede bajar de 1,5 mg/l en ningún caso.');
+
+    aoa.push([
+      c('Nº', S.cab), c('Fecha', S.cab), c('Técnico', S.cab),
+      c('Fuente', S.cab), c('Código', S.cab),
+      c('Cloro Libre (ppm)', S.cab), c('Valoración', S.cab),
+      c('Lavado Filtros', S.cab), c('Renovación Agua', S.cab),
+      c('Observaciones', S.cab),
+    ]);
+
+    let n = 1;
+    regsR1.forEach((r, ri) => {
+      r.fuentes.forEach(f => {
+        const fuente = FUENTES.find(x => x.codigo === f);
+        const cloro = r.estados['cloro-'+f];
+        const parada = r.estados['parada-'+f];
+        const lav = r.estados['lav-'+f];
+        const ren = r.estados['ren-'+f];
+        const st = ri % 2 === 0 ? S.fila : S.filaAlt;
+
+        let cloroVal, cloroSt, valoracion, valorSt;
+        if (parada || cloro === 'PARADA') {
+          cloroVal = 'FUENTE PARADA'; cloroSt = S.parada;
+          valoracion = 'SIN MEDICIÓN'; valorSt = S.parada;
+        } else if (typeof cloro === 'number') {
+          cloroVal = cloro; cloroSt = cloro < 1.5 ? S.numAlerta : cloro > 3 ? S.numNaranja : S.numOk;
+          valoracion = cloro < 1.5 ? '⚠ BAJO — ACTUAR' : cloro > 3 ? 'ALTO' : 'CORRECTO';
+          valorSt = cloro < 1.5 ? S.alerta : cloro > 3 ? S.naranja : S.ok;
+        } else {
+          cloroVal = '—'; cloroSt = S.gris; valoracion = '—'; valorSt = S.gris;
+        }
+
+        aoa.push([
+          c(n++, {...st, alignment:{horizontal:'center',vertical:'center'}}),
+          c(fmtFecha(r.fecha), st),
+          c(r.trabajador, st),
+          c(fuente?.nombre || f, st),
+          c(f, {...st, alignment:{horizontal:'center',vertical:'center'}}),
+          c(cloroVal, cloroSt),
+          c(valoracion, valorSt),
+          c(estadoTxt(lav), estadoS(lav)),
+          c(estadoTxt(ren), estadoS(ren)),
+          c(r.observaciones || '', st),
+        ]);
+      });
+    });
+
+    aoa.push([c('', {})]);
+    aoa.push([c('NOTA LEGAL: Valores fuera de rango deben comunicarse al responsable inmediatamente y registrar las medidas correctoras adoptadas.', S.pie)]);
+
+    const sh = finalizarHoja(aoa, NC, 4);
+    sh['!cols'] = [{wch:5},{wch:12},{wch:22},{wch:25},{wch:8},{wch:14},{wch:16},{wch:14},{wch:14},{wch:40}];
+    sh['!rows'] = [{hpt:30},{hpt:18},{hpt:18},{hpt:30},{hpt:16}];
+    XLSX.utils.book_append_sheet(wb, sh, 'Reg.Nº1 Cloro');
+  }
+
+  // ════════════════════════════════════════════
+  // HOJA 2 — REGISTRO Nº2: MENSUAL
+  // ════════════════════════════════════════════
+  const regsR2 = regs.filter(r => r.tipo === 'R2');
+  if (regsR2.length > 0) {
+    const aoa = [];
+    const NC = 9;
+    cabeceraHoja(aoa, 'REGISTRO Nº2 — CONTROL MENSUAL', '', NC,
+      'Funcionamiento prefiltros de agua (S/ Protocolo FT Nº3) y estado equipos desinfección del agua (S/ Protocolo Común Nº3)');
+    aoa.push([
+      c('Nº', S.cab), c('Fecha', S.cab), c('Técnico', S.cab), c('Fuente', S.cab), c('Código', S.cab),
+      c('Prefiltros — Sin obstrucción', S.cab), c('Prefiltros — Suciedad', S.cab),
+      c('Equipo Desinfección — Correcto', S.cab), c('Equipo Desinfección — Defectuoso', S.cab),
+    ]);
+    let n = 1;
+    regsR2.forEach((r, ri) => {
+      r.fuentes.forEach(f => {
+        const fuente = FUENTES.find(x => x.codigo === f);
+        const st = ri % 2 === 0 ? S.fila : S.filaAlt;
+        const get = k => r.estados[`${k}-${f}`];
+        aoa.push([
+          c(n++, {...st,alignment:{horizontal:'center',vertical:'center'}}),
+          c(fmtFecha(r.fecha), st), c(r.trabajador, st),
+          c(fuente?.nombre || f, st),
+          c(f, {...st,alignment:{horizontal:'center',vertical:'center'}}),
+          c(estadoTxt(get('prefiltros_ok')), estadoS(get('prefiltros_ok'))),
+          c(estadoTxt(get('prefiltros_mal')), estadoS(get('prefiltros_mal'))),
+          c(estadoTxt(get('desinfeccion_ok')), estadoS(get('desinfeccion_ok'))),
+          c(estadoTxt(get('desinfeccion_mal')), estadoS(get('desinfeccion_mal'))),
+        ]);
+      });
+    });
+    const sh = finalizarHoja(aoa, NC, 4);
+    sh['!cols'] = [{wch:5},{wch:12},{wch:22},{wch:25},{wch:8},{wch:22},{wch:22},{wch:22},{wch:22}];
+    XLSX.utils.book_append_sheet(wb, sh, 'Reg.Nº2 Mensual');
+  }
+
+  // ════════════════════════════════════════════
+  // HOJA 3 — REGISTRO Nº3: TRIMESTRAL
+  // ════════════════════════════════════════════
+  const regsR3 = regs.filter(r => r.tipo === 'R3');
+  if (regsR3.length > 0) {
+    const aoa = [];
+    const NC = 11;
+    cabeceraHoja(aoa, 'REGISTRO Nº3 — CONTROL TRIMESTRAL', '', NC,
+      'Estado conservación y limpieza de las fuentes S/ Protocolo FNT Nº3 y Nº4');
+    aoa.push([
+      c('Nº',S.cab),c('Fecha',S.cab),c('Técnico',S.cab),c('Fuente',S.cab),c('Código',S.cab),
+      c('Boquillas — Correcto',S.cab),c('Boquillas — Incidencia',S.cab),
+      c('Bombas — Correcto',S.cab),c('Bombas — Incidencia',S.cab),
+      c('Filtros Recirculación — Correcto',S.cab),c('Filtros Recirculación — Incidencia',S.cab),
+    ]);
+    let n = 1;
+    regsR3.forEach((r, ri) => {
+      r.fuentes.forEach(f => {
+        const fuente = FUENTES.find(x => x.codigo === f);
+        const st = ri % 2 === 0 ? S.fila : S.filaAlt;
+        const get = k => r.estados[`${k}-${f}`];
+        aoa.push([
+          c(n++,{...st,alignment:{horizontal:'center',vertical:'center'}}),
+          c(fmtFecha(r.fecha),st), c(r.trabajador,st),
+          c(fuente?.nombre||f,st), c(f,{...st,alignment:{horizontal:'center',vertical:'center'}}),
+          c(estadoTxt(get('boquillas_ok')),estadoS(get('boquillas_ok'))),
+          c(estadoTxt(get('boquillas_mal')),estadoS(get('boquillas_mal'))),
+          c(estadoTxt(get('bombas_ok')),estadoS(get('bombas_ok'))),
+          c(estadoTxt(get('bombas_mal')),estadoS(get('bombas_mal'))),
+          c(estadoTxt(get('filtros_recirc_ok')),estadoS(get('filtros_recirc_ok'))),
+          c(estadoTxt(get('filtros_recirc_mal')),estadoS(get('filtros_recirc_mal'))),
+        ]);
+      });
+    });
+    const sh = finalizarHoja(aoa, NC, 4);
+    sh['!cols'] = [{wch:5},{wch:12},{wch:22},{wch:25},{wch:8},{wch:18},{wch:18},{wch:18},{wch:18},{wch:20},{wch:20}];
+    XLSX.utils.book_append_sheet(wb, sh, 'Reg.Nº3 Trimestral');
+  }
+
+  // ════════════════════════════════════════════
+  // HOJA 4 — REGISTRO Nº4: SEMESTRAL
+  // ════════════════════════════════════════════
+  const regsR4 = regs.filter(r => r.tipo === 'R4');
+  if (regsR4.length > 0) {
+    const aoa = [];
+    const NC = 11;
+    cabeceraHoja(aoa, 'REGISTRO Nº4 — CONTROL SEMESTRAL', '', NC,
+      'Estado conservación y limpieza boquillas, bombas y filtros S/ Protocolo FNT Nº2');
+    aoa.push([
+      c('Nº',S.cab),c('Fecha',S.cab),c('Técnico',S.cab),c('Fuente',S.cab),c('Código',S.cab),
+      c('Boquillas — Correcto',S.cab),c('Boquillas — Incidencia',S.cab),
+      c('Bombas — Correcto',S.cab),c('Bombas — Incidencia',S.cab),
+      c('Filtro Recirculación — Correcto',S.cab),c('Filtro Recirculación — Incidencia',S.cab),
+    ]);
+    let n = 1;
+    regsR4.forEach((r, ri) => {
+      r.fuentes.forEach(f => {
+        const fuente = FUENTES.find(x => x.codigo === f);
+        const st = ri % 2 === 0 ? S.fila : S.filaAlt;
+        const get = k => r.estados[`${k}-${f}`];
+        aoa.push([
+          c(n++,{...st,alignment:{horizontal:'center',vertical:'center'}}),
+          c(fmtFecha(r.fecha),st), c(r.trabajador,st),
+          c(fuente?.nombre||f,st), c(f,{...st,alignment:{horizontal:'center',vertical:'center'}}),
+          c(estadoTxt(get('boquillas_s_ok')),estadoS(get('boquillas_s_ok'))),
+          c(estadoTxt(get('boquillas_s_mal')),estadoS(get('boquillas_s_mal'))),
+          c(estadoTxt(get('bombas_s_ok')),estadoS(get('bombas_s_ok'))),
+          c(estadoTxt(get('bombas_s_mal')),estadoS(get('bombas_s_mal'))),
+          c(estadoTxt(get('filtro_recirc_s_ok')),estadoS(get('filtro_recirc_s_ok'))),
+          c(estadoTxt(get('filtro_recirc_s_mal')),estadoS(get('filtro_recirc_s_mal'))),
+        ]);
+      });
+    });
+    const sh = finalizarHoja(aoa, NC, 4);
+    sh['!cols'] = [{wch:5},{wch:12},{wch:22},{wch:25},{wch:8},{wch:18},{wch:18},{wch:18},{wch:18},{wch:20},{wch:20}];
+    XLSX.utils.book_append_sheet(wb, sh, 'Reg.Nº4 Semestral');
+  }
+
+  // ════════════════════════════════════════════
+  // HOJA 5 — REGISTRO Nº5: ANUAL
+  // ════════════════════════════════════════════
+  const regsR5 = regs.filter(r => r.tipo === 'R5');
+  if (regsR5.length > 0) {
+    const aoa = [];
+    const NC = 11;
+    cabeceraHoja(aoa, 'REGISTRO Nº5 — REVISIÓN ANUAL', '', NC,
+      'Funcionamiento instalaciones, revisión pulverización y lavado manual de filtros S/ Protocolo Común Nº4');
+    aoa.push([
+      c('Nº',S.cab),c('Fecha',S.cab),c('Técnico',S.cab),c('Fuente',S.cab),c('Código',S.cab),
+      c('Revisión General — Correcto',S.cab),c('Revisión General — Deficiencias',S.cab),
+      c('Pulverización — Correcta',S.cab),c('Pulverización — Defectos',S.cab),
+      c('Lavado Manual Filtros',S.cab),c('Filtros a Sustituir',S.cab),
+    ]);
+    let n = 1;
+    regsR5.forEach((r, ri) => {
+      r.fuentes.forEach(f => {
+        const fuente = FUENTES.find(x => x.codigo === f);
+        const st = ri % 2 === 0 ? S.fila : S.filaAlt;
+        const get = k => r.estados[`${k}-${f}`];
+        aoa.push([
+          c(n++,{...st,alignment:{horizontal:'center',vertical:'center'}}),
+          c(fmtFecha(r.fecha),st), c(r.trabajador,st),
+          c(fuente?.nombre||f,st), c(f,{...st,alignment:{horizontal:'center',vertical:'center'}}),
+          c(estadoTxt(get('revision_ok')),estadoS(get('revision_ok'))),
+          c(estadoTxt(get('revision_mal')),estadoS(get('revision_mal'))),
+          c(estadoTxt(get('pulverizacion_ok')),estadoS(get('pulverizacion_ok'))),
+          c(estadoTxt(get('pulverizacion_mal')),estadoS(get('pulverizacion_mal'))),
+          c(estadoTxt(get('lavado_manual')),estadoS(get('lavado_manual'))),
+          c(estadoTxt(get('sustitucion')),estadoS(get('sustitucion'))),
+        ]);
+      });
+    });
+    const sh = finalizarHoja(aoa, NC, 4);
+    sh['!cols'] = [{wch:5},{wch:12},{wch:22},{wch:25},{wch:8},{wch:18},{wch:18},{wch:18},{wch:18},{wch:18},{wch:18}];
+    XLSX.utils.book_append_sheet(wb, sh, 'Reg.Nº5 Anual');
+  }
+
+  // ════════════════════════════════════════════
+  // HOJA 6 — PARTE SEMANAL
+  // ════════════════════════════════════════════
+  const regsRS = regs.filter(r => r.tipo === 'RS');
+  if (regsRS.length > 0) {
+    const aoa = [];
+    const NC = 10;
+    cabeceraHoja(aoa, 'PARTE SEMANAL — CONTROL DE MANTENIMIENTO', '', NC, '');
+    aoa.push([
+      c('Nº',S.cab),c('Fecha',S.cab),c('Técnico',S.cab),c('Fuente',S.cab),c('Código',S.cab),
+      c('Nivel de Limpieza',S.cab),c('Dosificador Automático',S.cab),
+      c('Chorros de Impulsión',S.cab),c('Limpieza de Filtros',S.cab),
+      c('Funcionamiento General',S.cab),
+    ]);
+    let n = 1;
+    regsRS.forEach((r, ri) => {
+      r.fuentes.forEach(f => {
+        const fuente = FUENTES.find(x => x.codigo === f);
+        const st = ri % 2 === 0 ? S.fila : S.filaAlt;
+        const get = k => r.estados[`${k}-${f}`];
+        aoa.push([
+          c(n++,{...st,alignment:{horizontal:'center',vertical:'center'}}),
+          c(fmtFecha(r.fecha),st), c(r.trabajador,st),
+          c(fuente?.nombre||f,st), c(f,{...st,alignment:{horizontal:'center',vertical:'center'}}),
+          c(estadoTxt(get('limpieza')),estadoS(get('limpieza'))),
+          c(estadoTxt(get('dosificador')),estadoS(get('dosificador'))),
+          c(estadoTxt(get('chorros')),estadoS(get('chorros'))),
+          c(estadoTxt(get('filtros_lim')),estadoS(get('filtros_lim'))),
+          c(estadoTxt(get('sistema')),estadoS(get('sistema'))),
+        ]);
+      });
+    });
+    const sh = finalizarHoja(aoa, NC, 4);
+    sh['!cols'] = [{wch:5},{wch:12},{wch:22},{wch:25},{wch:8},{wch:16},{wch:18},{wch:16},{wch:16},{wch:18}];
+    XLSX.utils.book_append_sheet(wb, sh, 'Parte Semanal');
+  }
+
+  // ════════════════════════════════════════════
+  // HOJA 7 — INCIDENCIAS
+  // ════════════════════════════════════════════
+  const regsIN = regs.filter(r => r.tipo === 'RIN');
+  if (regsIN.length > 0) {
+    const aoa = [];
+    const NC = 11;
+    cabeceraHoja(aoa, 'REGISTRO DE INCIDENCIAS', '', NC, '');
+    aoa.push([
+      c('Nº',S.cab),c('Fecha',S.cab),c('Técnico',S.cab),c('Fuente',S.cab),c('Código',S.cab),
+      c('Tipo de Incidencia',S.cab),c('Gravedad',S.cab),
+      c('Descripción',S.cab),c('Medidas Adoptadas',S.cab),
+      c('Fuente Operativa',S.cab),c('Nota Responsable',S.cab),
+    ]);
+    let n = 1;
+    regsIN.forEach((r, ri) => {
+      r.fuentes.forEach(f => {
+        const fuente = FUENTES.find(x => x.codigo === f);
+        const st = ri % 2 === 0 ? S.fila : S.filaAlt;
+        const grav = r.estados['grav-'+f] || '—';
+        const op = r.estados['operativa-'+f];
+        const gravS = grav === 'grave' ? S.alerta : grav === 'media' ? S.naranja : S.gris;
+        aoa.push([
+          c(n++,{...st,alignment:{horizontal:'center',vertical:'center'}}),
+          c(fmtFecha(r.fecha),st), c(r.trabajador,st),
+          c(fuente?.nombre||f,st), c(f,{...st,alignment:{horizontal:'center',vertical:'center'}}),
+          c(r.extra?.['tipo-inc-'+f]||'—',st),
+          c(grav.toUpperCase(), gravS),
+          c(r.extra?.['desc-inc-'+f]||'—',st),
+          c(r.extra?.['medidas-'+f]||'—',st),
+          c(op==='si'?'SÍ OPERATIVA':op==='no'?'NO OPERATIVA':'—', op==='si'?S.ok:op==='no'?S.alerta:S.gris),
+          c(r.notaResponsable||'—',st),
+        ]);
+      });
+    });
+    const sh = finalizarHoja(aoa, NC, 4);
+    sh['!cols'] = [{wch:5},{wch:12},{wch:22},{wch:25},{wch:8},{wch:28},{wch:12},{wch:40},{wch:40},{wch:16},{wch:35}];
+    XLSX.utils.book_append_sheet(wb, sh, 'Incidencias');
+  }
+
+  // ════════════════════════════════════════════
+  // HOJA 8 — PARADAS Y PUESTAS EN MARCHA
+  // ════════════════════════════════════════════
+  const regsPM = regs.filter(r => r.tipo === 'RPM');
+  if (regsPM.length > 0) {
+    const aoa = [];
+    const NC = 9;
+    cabeceraHoja(aoa, 'REGISTRO DE PARADAS Y PUESTAS EN MARCHA', '', NC, '');
+    aoa.push([
+      c('Nº',S.cab),c('Fecha',S.cab),c('Técnico',S.cab),c('Fuente',S.cab),c('Código',S.cab),
+      c('Acción',S.cab),c('Hora',S.cab),c('Motivo',S.cab),c('Observaciones',S.cab),
+    ]);
+    let n = 1;
+    regsPM.forEach((r, ri) => {
+      r.fuentes.forEach(f => {
+        const fuente = FUENTES.find(x => x.codigo === f);
+        const st = ri % 2 === 0 ? S.fila : S.filaAlt;
+        const accion = r.estados['accion-pm-'+f];
+        aoa.push([
+          c(n++,{...st,alignment:{horizontal:'center',vertical:'center'}}),
+          c(fmtFecha(r.fecha),st), c(r.trabajador,st),
+          c(fuente?.nombre||f,st), c(f,{...st,alignment:{horizontal:'center',vertical:'center'}}),
+          c(accion==='parada'?'PARADA':accion==='marcha'?'PUESTA EN MARCHA':'—', accion==='parada'?S.alerta:accion==='marcha'?S.ok:S.gris),
+          c(r.extra?.['hora-pm-'+f]||'—',{...st,alignment:{horizontal:'center',vertical:'center'}}),
+          c(r.extra?.['motivo-pm-'+f]||'—',st),
+          c(r.observaciones||'—',st),
+        ]);
+      });
+    });
+    const sh = finalizarHoja(aoa, NC, 4);
+    sh['!cols'] = [{wch:5},{wch:12},{wch:22},{wch:25},{wch:8},{wch:20},{wch:10},{wch:35},{wch:40}];
+    XLSX.utils.book_append_sheet(wb, sh, 'Paradas-Marchas');
+  }
+
+  // ════════════════════════════════════════════
+  // HOJA FINAL — RESUMEN OFICIAL
+  // ════════════════════════════════════════════
+  const aoaRes = [];
+  const NCR = 8;
+  cabeceraHoja(aoaRes, `RESUMEN OFICIAL DE REGISTROS — ${muni.excelSubtitulo}`, '', NCR,
+    `Total de registros: ${registros.length}  |  Con incidencia: ${registros.filter(r=>tieneIncidencia(r)).length}  |  Correctos: ${registros.filter(r=>!tieneIncidencia(r)).length}`);
+  aoaRes.push([
+    c('Nº',S.cab),c('Fecha',S.cab),c('Técnico',S.cab),
+    c('Tipo de Registro',S.cab),c('Frecuencia',S.cab),
+    c('Fuentes',S.cab),c('Estado',S.cab),c('Nota Responsable',S.cab),
+  ]);
+  regs.forEach((r, idx) => {
+    const st = idx % 2 === 0 ? S.fila : S.filaAlt;
+    const incid = tieneIncidencia(r);
+    aoaRes.push([
+      c(idx+1,{...st,alignment:{horizontal:'center',vertical:'center'}}),
+      c(fmtFecha(r.fecha),st),
+      c(r.trabajador,st),
+      c(`${r.icono} Reg.${r.tipoNum} — ${r.tipoNombre}`,st),
+      c(r.freq,st),
+      c(r.fuentes.map(f=>{ const fn=FUENTES.find(x=>x.codigo===f); return fn?.nombre||f; }).join(', '),st),
+      c(incid?'⚠ CON INCIDENCIA':'✓ CORRECTO', incid?S.alerta:S.ok),
+      c(r.notaResponsable||'—',st),
+    ]);
+  });
+  aoaRes.push([c('',{})]);
+  aoaRes.push([c(`Documento generado el ${fechaHoy} mediante el sistema de gestión de Fuentes Ornamentales de Almuñécar.`,S.pie)]);
+  const shRes = finalizarHoja(aoaRes, NCR, 4);
+  shRes['!cols'] = [{wch:5},{wch:12},{wch:22},{wch:38},{wch:16},{wch:45},{wch:18},{wch:35}];
+  XLSX.utils.book_append_sheet(wb, shRes, 'Resumen Oficial');
+
+  XLSX.writeFile(wb, `${muni.excelNombre}_${fechaArchivo}.xlsx`);
+  showToast('📊 Excel oficial generado correctamente');
+}
+
+  // Estilos comunes
+  const estiloTitulo = { font: { bold: true, sz: 14, color: { rgb: 'FFFFFF' } }, fill: { fgColor: { rgb: '0A3D62' } }, alignment: { horizontal: 'center', vertical: 'center', wrapText: true } };
+  const estiloSubtitulo = { font: { bold: true, sz: 11, color: { rgb: 'FFFFFF' } }, fill: { fgColor: { rgb: '00B4D8' } }, alignment: { horizontal: 'center', vertical: 'center' } };
+  const estiloEncabezado = { font: { bold: true, sz: 10, color: { rgb: '0A3D62' } }, fill: { fgColor: { rgb: 'E8F4FD' } }, alignment: { horizontal: 'center', vertical: 'center', wrapText: true }, border: { bottom: { style: 'medium', color: { rgb: '00B4D8' } } } };
+  const estiloNormal = { font: { sz: 10 }, alignment: { vertical: 'center', wrapText: true }, border: { bottom: { style: 'thin', color: { rgb: 'E0E7EF' } }, right: { style: 'thin', color: { rgb: 'E0E7EF' } } } };
+  const estiloAlerta = { font: { bold: true, sz: 10, color: { rgb: 'FFFFFF' } }, fill: { fgColor: { rgb: 'EF233C' } }, alignment: { horizontal: 'center', vertical: 'center' } };
+  const estiloOk = { font: { bold: true, sz: 10, color: { rgb: 'FFFFFF' } }, fill: { fgColor: { rgb: '06D6A0' } }, alignment: { horizontal: 'center', vertical: 'center' } };
+  const estiloNd = { font: { sz: 10, color: { rgb: '888888' } }, alignment: { horizontal: 'center', vertical: 'center' } };
+  const estiloFila = { font: { sz: 10 }, alignment: { vertical: 'center', wrapText: true }, border: { bottom: { style: 'thin', color: { rgb: 'E0E7EF' } } } };
+  const estiloFilaAlt = { font: { sz: 10 }, fill: { fgColor: { rgb: 'F8FAFC' } }, alignment: { vertical: 'center', wrapText: true }, border: { bottom: { style: 'thin', color: { rgb: 'E0E7EF' } } } };
+
+  function cel(v, s) { return { v, s, t: typeof v === 'number' ? 'n' : 's' }; }
+  function celNum(v, s) { return { v: v || 0, s, t: 'n' }; }
+
+  function estadoLabel(v) {
+    if (v === 'ok' || v === 'si') return '✓ OK';
+    if (v === 'mal' || v === 'no') return '✗ MAL';
+    if (v === 'nd') return '–';
+    if (v === 'PARADA') return '⏸ PARADA';
+    if (typeof v === 'number') return v + ' ppm';
+    return v || '–';
+  }
+  function estadoEstilo(v) {
+    if (v === 'ok' || v === 'si') return estiloOk;
+    if (v === 'mal' || v === 'no' || v === 'grave') return estiloAlerta;
+    return estiloNd;
+  }
+
+  // ---- HOJA RESUMEN GENERAL ----
+  const regsOrdenados = [...registros].sort((a,b) => (a.fecha||'').localeCompare(b.fecha||''));
+  const wsResumen = [];
+
+  wsResumen.push([cel('FUENTES ORNAMENTALES ALMUÑÉCAR — REGISTRO GENERAL', estiloTitulo)]);
+  wsResumen.push([cel(`Generado: ${new Date().toLocaleDateString('es-ES', {weekday:'long',year:'numeric',month:'long',day:'numeric'})}`, estiloSubtitulo)]);
+  wsResumen.push([cel('', {})]);
+  wsResumen.push([
+    cel('Fecha', estiloEncabezado),
+    cel('Trabajador', estiloEncabezado),
+    cel('Tipo de Registro', estiloEncabezado),
+    cel('Frecuencia', estiloEncabezado),
+    cel('Fuentes', estiloEncabezado),
+    cel('Estado', estiloEncabezado),
+    cel('Observaciones', estiloEncabezado),
+    cel('Nota Responsable', estiloEncabezado),
+  ]);
+
+  regsOrdenados.forEach((r, idx) => {
+    const estilo = idx % 2 === 0 ? estiloFila : estiloFilaAlt;
+    const incid = tieneIncidencia(r);
+    const estadoCell = incid ? cel('⚠️ INCIDENCIA', estiloAlerta) : cel('✓ CORRECTO', estiloOk);
+    wsResumen.push([
+      cel(r.fecha ? new Date(r.fecha+'T00:00:00').toLocaleDateString('es-ES') : '—', estilo),
+      cel(r.trabajador, estilo),
+      cel(`${r.icono} Reg. ${r.tipoNum} — ${r.tipoNombre}`, estilo),
+      cel(r.freq, estilo),
+      cel(r.fuentes.join(', '), estilo),
+      estadoCell,
+      cel(r.observaciones || '—', estilo),
+      cel(r.notaResponsable || '—', estilo),
+    ]);
+  });
+
+  const wsResumenSheet = XLSX.utils.aoa_to_sheet(wsResumen);
+  wsResumenSheet['!cols'] = [{ wch: 14 }, { wch: 22 }, { wch: 35 }, { wch: 18 }, { wch: 30 }, { wch: 14 }, { wch: 35 }, { wch: 30 }];
+  wsResumenSheet['!rows'] = [{ hpt: 30 }, { hpt: 20 }];
+  wsResumenSheet['!merges'] = [{ s: { r: 0, c: 0 }, e: { r: 0, c: 7 } }, { s: { r: 1, c: 0 }, e: { r: 1, c: 7 } }];
+  XLSX.utils.book_append_sheet(wb, wsResumenSheet, 'Resumen General');
+
+  // ---- HOJAS POR TIPO ----
+  REGISTROS_TIPO.forEach(tipo => {
+    const regsT = regsOrdenados.filter(r => r.tipo === tipo.id);
+    if (regsT.length === 0) return;
+
+    const ws = [];
+    ws.push([cel(`${tipo.icono} REGISTRO ${tipo.num} — ${tipo.titulo.toUpperCase()}`, estiloTitulo)]);
+    ws.push([cel(`Frecuencia: ${tipo.freq}  |  Total registros: ${regsT.length}`, estiloSubtitulo)]);
+    ws.push([cel('', {})]);
+
+    if (tipo.id === 'R1') {
+      // Cabeceras especiales para cloro
+      const fuentesUsadas = [...new Set(regsT.flatMap(r => r.fuentes))].sort();
+      const cabecera = [
+        cel('Fecha', estiloEncabezado),
+        cel('Trabajador', estiloEncabezado),
+      ];
+      fuentesUsadas.forEach(f => {
+        const fn = FUENTES.find(x => x.codigo === f);
+        cabecera.push(cel(`${fn?.nombre || f}\nCloro (ppm)`, estiloEncabezado));
+        cabecera.push(cel(`${fn?.nombre || f}\nLavado Filtros`, estiloEncabezado));
+        cabecera.push(cel(`${fn?.nombre || f}\nRenovación Agua`, estiloEncabezado));
+      });
+      cabecera.push(cel('Observaciones', estiloEncabezado));
+      ws.push(cabecera);
+
+      regsT.forEach((r, idx) => {
+        const estilo = idx % 2 === 0 ? estiloFila : estiloFilaAlt;
+        const fila = [
+          cel(r.fecha ? new Date(r.fecha+'T00:00:00').toLocaleDateString('es-ES') : '—', estilo),
+          cel(r.trabajador, estilo),
+        ];
+        fuentesUsadas.forEach(f => {
+          const cloro = r.estados['cloro-'+f];
+          const lav = r.estados['lav-'+f];
+          const ren = r.estados['ren-'+f];
+          if (cloro === 'PARADA' || r.estados['parada-'+f]) {
+            fila.push(cel('⏸ PARADA', estiloNd));
+          } else if (typeof cloro === 'number') {
+            const s = cloro < 1.5 ? estiloAlerta : cloro > 3 ? { ...estiloNd, font: { bold: true, sz: 10, color: { rgb: 'FB8500' } } } : estiloOk;
+            fila.push(cel(cloro + ' ppm', s));
+          } else {
+            fila.push(cel('—', estiloNd));
+          }
+          fila.push(cel(estadoLabel(lav), estadoEstilo(lav)));
+          fila.push(cel(estadoLabel(ren), estadoEstilo(ren)));
+        });
+        fila.push(cel(r.observaciones || '—', estilo));
+        ws.push(fila);
+      });
+
+      const sheet = XLSX.utils.aoa_to_sheet(ws);
+      const colWidths = [{ wch: 14 }, { wch: 22 }];
+      fuentesUsadas.forEach(() => { colWidths.push({ wch: 18 }, { wch: 16 }, { wch: 16 }); });
+      colWidths.push({ wch: 35 });
+      sheet['!cols'] = colWidths;
+
+    } else if (tipo.id === 'RIN') {
+      ws.push([
+        cel('Fecha', estiloEncabezado),
+        cel('Trabajador', estiloEncabezado),
+        cel('Fuente', estiloEncabezado),
+        cel('Tipo Incidencia', estiloEncabezado),
+        cel('Gravedad', estiloEncabezado),
+        cel('Descripción', estiloEncabezado),
+        cel('Medidas Adoptadas', estiloEncabezado),
+        cel('Fuente Operativa', estiloEncabezado),
+        cel('Observaciones', estiloEncabezado),
+        cel('Nota Responsable', estiloEncabezado),
+      ]);
+      regsT.forEach((r, idx) => {
+        const estilo = idx % 2 === 0 ? estiloFila : estiloFilaAlt;
+        r.fuentes.forEach(f => {
+          const fn = FUENTES.find(x => x.codigo === f);
+          const grav = r.estados['grav-'+f] || '—';
+          const op = r.estados['operativa-'+f];
+          ws.push([
+            cel(r.fecha ? new Date(r.fecha+'T00:00:00').toLocaleDateString('es-ES') : '—', estilo),
+            cel(r.trabajador, estilo),
+            cel(`${fn?.nombre || f} (${f})`, estilo),
+            cel(r.extra?.['tipo-inc-'+f] || '—', estilo),
+            cel(grav.toUpperCase(), grav === 'grave' ? estiloAlerta : grav === 'media' ? { ...estiloNd, font: { bold:true, sz:10, color:{rgb:'FB8500'} } } : estiloNd),
+            cel(r.extra?.['desc-inc-'+f] || '—', estilo),
+            cel(r.extra?.['medidas-'+f] || '—', estilo),
+            cel(op === 'si' ? '✓ SÍ' : op === 'no' ? '✗ NO' : '—', op === 'si' ? estiloOk : op === 'no' ? estiloAlerta : estiloNd),
+            cel(r.observaciones || '—', estilo),
+            cel(r.notaResponsable || '—', estilo),
+          ]);
+        });
+      });
+      const sheet = XLSX.utils.aoa_to_sheet(ws);
+      sheet['!cols'] = [{ wch: 14 }, { wch: 22 }, { wch: 22 }, { wch: 28 }, { wch: 12 }, { wch: 35 }, { wch: 35 }, { wch: 14 }, { wch: 30 }, { wch: 30 }];
+      sheet['!merges'] = [{ s:{r:0,c:0}, e:{r:0,c:9} }, { s:{r:1,c:0}, e:{r:1,c:9} }];
+      XLSX.utils.book_append_sheet(wb, sheet, `Reg.${tipo.num}`);
+      return;
+
+    } else if (tipo.id === 'RPM') {
+      ws.push([
+        cel('Fecha', estiloEncabezado),
+        cel('Trabajador', estiloEncabezado),
+        cel('Fuente', estiloEncabezado),
+        cel('Acción', estiloEncabezado),
+        cel('Hora', estiloEncabezado),
+        cel('Motivo', estiloEncabezado),
+        cel('Observaciones', estiloEncabezado),
+        cel('Nota Responsable', estiloEncabezado),
+      ]);
+      regsT.forEach((r, idx) => {
+        const estilo = idx % 2 === 0 ? estiloFila : estiloFilaAlt;
+        r.fuentes.forEach(f => {
+          const fn = FUENTES.find(x => x.codigo === f);
+          const accion = r.estados['accion-pm-'+f];
+          ws.push([
+            cel(r.fecha ? new Date(r.fecha+'T00:00:00').toLocaleDateString('es-ES') : '—', estilo),
+            cel(r.trabajador, estilo),
+            cel(`${fn?.nombre || f} (${f})`, estilo),
+            cel(accion === 'parada' ? '🔴 PARADA' : accion === 'marcha' ? '🟢 PUESTA EN MARCHA' : '—', accion === 'parada' ? estiloAlerta : accion === 'marcha' ? estiloOk : estiloNd),
+            cel(r.extra?.['hora-pm-'+f] || '—', estilo),
+            cel(r.extra?.['motivo-pm-'+f] || '—', estilo),
+            cel(r.observaciones || '—', estilo),
+            cel(r.notaResponsable || '—', estilo),
+          ]);
+        });
+      });
+      const sheet = XLSX.utils.aoa_to_sheet(ws);
+      sheet['!cols'] = [{ wch: 14 }, { wch: 22 }, { wch: 22 }, { wch: 22 }, { wch: 10 }, { wch: 30 }, { wch: 30 }, { wch: 30 }];
+      sheet['!merges'] = [{ s:{r:0,c:0}, e:{r:0,c:7} }, { s:{r:1,c:0}, e:{r:1,c:7} }];
+      XLSX.utils.book_append_sheet(wb, sheet, `Reg.${tipo.num}`);
+      return;
+
+    } else {
+      // Registros genéricos Nº2-Nº5 y Semanal
+      const actividades = tipo.actividades || [];
+      const fuentesUsadas = [...new Set(regsT.flatMap(r => r.fuentes))].sort();
+      const cabecera = [
+        cel('Fecha', estiloEncabezado),
+        cel('Trabajador', estiloEncabezado),
+      ];
+      fuentesUsadas.forEach(f => {
+        const fn = FUENTES.find(x => x.codigo === f);
+        actividades.forEach(act => {
+          cabecera.push(cel(`${fn?.nombre || f}\n${act.nombre}`, estiloEncabezado));
+        });
+      });
+      cabecera.push(cel('Observaciones', estiloEncabezado));
+      ws.push(cabecera);
+
+      regsT.forEach((r, idx) => {
+        const estilo = idx % 2 === 0 ? estiloFila : estiloFilaAlt;
+        const fila = [
+          cel(r.fecha ? new Date(r.fecha+'T00:00:00').toLocaleDateString('es-ES') : '—', estilo),
+          cel(r.trabajador, estilo),
+        ];
+        fuentesUsadas.forEach(f => {
+          actividades.forEach(act => {
+            const v = r.estados[`${act.id}-${f}`];
+            fila.push(cel(estadoLabel(v), estadoEstilo(v)));
+          });
+        });
+        fila.push(cel(r.observaciones || '—', estilo));
+        ws.push(fila);
+      });
+
+      const sheet = XLSX.utils.aoa_to_sheet(ws);
+      const colWidths = [{ wch: 14 }, { wch: 22 }];
+      fuentesUsadas.forEach(() => actividades.forEach(() => colWidths.push({ wch: 20 })));
+      colWidths.push({ wch: 35 });
+      sheet['!cols'] = colWidths;
+    }
+
+    const sheet = XLSX.utils.aoa_to_sheet(ws);
+    const nCols = (ws[3] || ws[0] || []).length - 1;
+    sheet['!merges'] = [{ s:{r:0,c:0}, e:{r:0,c:nCols} }, { s:{r:1,c:0}, e:{r:1,c:nCols} }];
+    sheet['!rows'] = [{ hpt: 28 }, { hpt: 20 }];
+    XLSX.utils.book_append_sheet(wb, sheet, `Reg.${tipo.num}`);
+  });
+
+
+</script>
+</body>
+</html>
