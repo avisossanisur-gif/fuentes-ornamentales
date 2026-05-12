@@ -1175,8 +1175,9 @@ function verificarClave() {
   const clave = document.getElementById('input-clave').value;
   const claveCorrecta = clavesM[rolPendiente];
   if (clave === claveCorrecta) {
+    const rolConfirmado = rolPendiente;
     cerrarModalClave();
-    entrar(rolPendiente);
+    entrar(rolConfirmado);
   } else {
     document.getElementById('clave-error').textContent = '❌ Contraseña incorrecta';
     document.getElementById('input-clave').value = '';
